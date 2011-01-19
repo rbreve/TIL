@@ -1,0 +1,34 @@
+<% title "Snippet" %>
+
+<%= stylesheet_link_tag "prettify" %>
+<%= javascript_include_tag "prettify" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @snippet.name %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @snippet.user_id %>
+</p>
+<div>
+<pre class="prettyprint lang-html">
+   <%= @snippet.code %>
+</pre>
+Version <%=@snippet.version%>
+
+<%if @snippet.version > 1%>
+    | <%= link_to "Previous version", :version=>@snippet.version-1%>
+<%end%>
+
+<%if params[:version] %>
+    | <%= link_to "Latest version", :version=>nil%>
+<%end%>
+ | <%= link_to "Run Demo", snippet_path() + "/run", :target => "_blank"%>
+</div>
+
+<p>
+  <%= link_to "Edit", edit_snippet_path(@snippet) %> |
+  <%= link_to "Destroy", @snippet, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", snippets_path %>
+</p>
