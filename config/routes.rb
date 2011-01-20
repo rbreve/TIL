@@ -1,6 +1,8 @@
 Html5snippets::Application.routes.draw do
   resources :snippets
-  match 'snippets/:id/run' => 'snippets#run'
+  match '/snippets/:id/run' => 'snippets#run', :as => :run
+  match '/auth/twitter/callback' => "sessions#create"
+  match '/signout' => "sessions#destroy", :as => :signout
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -50,7 +52,7 @@ Html5snippets::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "snippets#index"
 
   # See how all your routes lay out with "rake routes"
 

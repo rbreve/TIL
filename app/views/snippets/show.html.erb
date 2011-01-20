@@ -9,12 +9,11 @@
 </p>
 <p>
   <strong>User:</strong>
-  <%= @snippet.user_id %>
+  <%= @snippet.user.name %>
 </p>
 <div>
-<pre class="prettyprint lang-html">
-   <%= @snippet.code %>
-</pre>
+
+<pre class="prettyprint lang-html"><%= @snippet.code %></pre>
 Version <%=@snippet.version%>
 
 <%if @snippet.version > 1%>
@@ -24,7 +23,7 @@ Version <%=@snippet.version%>
 <%if params[:version] %>
     | <%= link_to "Latest version", :version=>nil%>
 <%end%>
- | <%= link_to "Run Demo", snippet_path() + "/run", :target => "_blank"%>
+ | <%= link_to "Run Demo", run_path(), :target => "_blank"%>
 </div>
 
 <p>

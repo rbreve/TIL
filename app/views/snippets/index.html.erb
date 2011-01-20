@@ -1,21 +1,11 @@
 <% title "Snippets" %>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>User</th>
-    <th>Code</th>
-  </tr>
+ 
   <% for snippet in @snippets %>
-    <tr>
-      <td><%= snippet.name %></td>
-      <td><%= snippet.user_id %></td>
-      <td><%= snippet.code %></td>
-      <td><%= link_to "Show", snippet %></td>
-      <td><%= link_to "Edit", edit_snippet_path(snippet) %></td>
-      <td><%= link_to "Destroy", snippet, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+  <div>
+      <%= link_to snippet.name, snippet_path(snippet) %> 
+      <%= link_to "Edit", edit_snippet_path(snippet) %> 
+      <%= link_to "Destroy", snippet, :confirm => 'Are you sure?', :method => :delete %> 
+    </div>
   <% end %>
-</table>
-
+ 
 <p><%= link_to "New Snippet", new_snippet_path %></p>

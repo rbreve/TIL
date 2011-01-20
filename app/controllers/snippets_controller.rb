@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-
+  before_filter :authenticate_user
   
   def index
     @snippets = Snippet.all
@@ -22,6 +22,7 @@ class SnippetsController < ApplicationController
   
   def create
     @snippet = Snippet.new(params[:snippet])
+    @snippet.user_id = session[:user_id]
     if @snippet.save
       flash[:notice] = "Successfully created snippet."
       redirect_to @snippet
