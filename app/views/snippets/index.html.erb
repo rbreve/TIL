@@ -1,10 +1,8 @@
-<% title "Snippets" %>
+<% title "HTML5 Snippets" %>
  
   <% for snippet in @snippets %>
-  <div>
-      <%= link_to snippet.name, snippet_path(snippet) %> 
-      <%= link_to "Edit", edit_snippet_path(snippet) %> 
-      <%= link_to "Destroy", snippet, :confirm => 'Are you sure?', :method => :delete %> 
+  <div><h1><%= link_to snippet.name, snippet_path(snippet) %> </h1>
+      
     </div>
   <% end %>
  

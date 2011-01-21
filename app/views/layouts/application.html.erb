@@ -9,18 +9,28 @@
     <%= yield(:head) %>
   </head>
   <body onload="prettyPrint()">
-    <div id="container">
+    
+    <div id="header">
+    <img src="/images/logo.png">
+    
+    <div id="user-login">
     <%if current_user%>
         Welcome <strong><%= current_user.name %></strong> <%= link_to "Sign out", signout_path() %>
     <%else%>
         <%= link_to "Sign in with Twitter", "/auth/twitter" %>
     <%end%>
+    </div>
     
+    </div> 
+      
+    <div id="container" class="rounded10">
+        <div id="wrapper">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
+      </div>
     </div>
   </body>
 </html>

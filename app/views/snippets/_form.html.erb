@@ -1,13 +1,53 @@
 <%= form_for @snippet do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label "Snippet Title" %><br />
+    <%= f.label "Snippet name" %>
+    <span class="small">Snippet title with short description</span> <br/>
+
     <%= f.text_field :name %>
   </p>
    
   <p>
-    <%= f.label :code %><br />
+    <%= f.label :code %> 
+   <span class="small">Paste your source code here</span> <br/>
+
     <%= f.text_area :code, :cols=>120 %>
+    <div id="button-beautify">
+    <label> Beautify Code </label><input type="checkbox" id="b"/> 
+    </div>
   </p>
-  <p><%= f.submit %></p>
+  
+  <p>
+    <%= f.label :description %>
+    <span class="small">What does your code do?</span> <br/>
+     
+    <%= f.text_area :description %>
+     
+  </p>
+  
+      <%= f.label "Tags" %>
+          <span class="small">Comma separated tags ie. button, round, gradient, svg</span> <br/>
+
+  <%= f.text_field :tags %>
+
+  <p><%= f.submit :value => "Post Snippet"%></p>
 <% end %>
+
+
+
+<script>
+    var source;
+    $(function() {
+        
+        $("#b").click(function(){
+            if($(this).attr("checked")){
+                source = $('#snippet_code').val();
+                $("#snippet_code").val(style_html(source));
+            }else{
+                $("#snippet_code").val(source);
+            }
+        });
+    });
+
+    
+ </script>

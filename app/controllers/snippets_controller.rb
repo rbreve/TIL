@@ -23,6 +23,8 @@ class SnippetsController < ApplicationController
   def create
     @snippet = Snippet.new(params[:snippet])
     @snippet.user_id = session[:user_id]
+    @snippet.tag_list = params[:snippet][:tags]
+    
     if @snippet.save
       flash[:notice] = "Successfully created snippet."
       redirect_to @snippet
@@ -37,6 +39,8 @@ class SnippetsController < ApplicationController
   
   def update
     @snippet = Snippet.find(params[:id])
+    @snippet.tag_list = params[:snippet][:tags]
+
     if @snippet.update_attributes(params[:snippet])
       flash[:notice] = "Successfully updated snippet."
       redirect_to @snippet
