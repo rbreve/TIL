@@ -1,9 +1,24 @@
-<% title "HTML5 Snippets" %>
- 
+  
   <% for snippet in @snippets %>
-  <div><h1><%= link_to snippet.name, snippet_path(snippet) %> </h1>
-      
+   <div class="snippet rounded5">
+      <h1><%= link_to snippet.name, snippet_path(snippet), :class=>"snippet_link" %> </h1>
+    <div class="description tk-museo-sans">
+      <%= snippet.description %>
     </div>
-  <% end %>
+    
+    <% unless snippet.tags.empty? %>
+        <div class="tags-wrapper">
+        <ul class="tags">
+        <% for tag in snippet.tags %>
+            <li class="rounded10">
+            <%= tag.name %>
+            </li>
+        <%end%>
+        <ul>
+        </div>
+     <%end%>
+    
+    </div>
+   <% end %>
  
 <p><%= link_to "New Snippet", new_snippet_path %></p>

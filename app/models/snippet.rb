@@ -1,6 +1,6 @@
 class Snippet < ActiveRecord::Base
   versioned
-  attr_accessible :name, :user_id, :code
+  attr_accessible :name, :code, :description
   belongs_to :user
   acts_as_taggable
   acts_as_taggable_on :tags

@@ -1,12 +1,18 @@
 class SnippetsController < ApplicationController
-  before_filter :authenticate_user
+  before_filter :authenticate_user, :except => ["index", "show"]
   
   def index
-    @snippets = Snippet.all
+    @snippets = Snippet.order("created_at desc")
+    if params[:tag]
+      @snippets = Snippet.tagged_with(params[:tag])
+    end
+    
   end
   
   def show
     @snippet = Snippet.find(params[:id])
+    @snippet.views+=1
+    @snippet.save()
     @snippet.revert_to(params[:version].to_i) if params[:version]
   end
   

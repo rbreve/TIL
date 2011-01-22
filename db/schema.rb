@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110120212239) do
+ActiveRecord::Schema.define(:version => 20110122015250) do
 
   create_table "snippets", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20110120212239) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.integer  "points",      :default => 0
+    t.integer  "views",       :default => 0
   end
 
   create_table "taggings", :force => true do |t|

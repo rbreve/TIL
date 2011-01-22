@@ -1,29 +1,39 @@
 
 
- 
-<%= stylesheet_link_tag "prettify" %>
-<%= javascript_include_tag "prettify" %>
+
+<!-- <%= stylesheet_link_tag "prettify" %>
+<%= javascript_include_tag "prettify" %> -->
+
+<%= stylesheet_link_tag "shCore" %>
+
+<%= stylesheet_link_tag "shThemeDefault" %>
+<%= javascript_include_tag "shCore" %>
+<%= javascript_include_tag "shBrushCss" %>
+<%= javascript_include_tag "shBrushXml" %>
+
+
 
 <h1>
   <%= @snippet.name %>
 </h1>
 
+<%= @snippet.description %>
+
 <% unless @snippet.tags.empty? %>
 
     <div class="tags-wrapper">
-    <ul class="tags">
-    <% for tag in @snippet.tags %>
-        <li class="rounded10">
-        <%= tag.name %>
-        </li>
-    <%end%>
-    <ul>
+        <ul class="tags">
+        <% for tag in @snippet.tags %>
+            <li class="rounded10">
+            <%= tag.name %>
+            </li>
+        <%end%>
+        <ul>
     </div>
-    <div>
-    
+     
 <%end%>
 
-<pre id="sourcecode" class="prettyprint lang-html"><code><%= @snippet.code %></code></pre>
+<pre id="sourcecode" class="brush: css; html-script: true; gutter: false; " ><code><%= @snippet.code %></code></pre>
 
 
 <div>
@@ -43,6 +53,14 @@ Version <%=@snippet.version%>
 
 <p>
   <%= link_to "Edit", edit_snippet_path(@snippet) %> |
-  <%= link_to "Destroy", @snippet, :confirm => 'Are you sure?', :method => :delete %> |
+  
+  <%if current_user == @snippet.user%>
+      <%= link_to "Destroy", @snippet, :confirm => 'Are you sure?', :method => :delete %> |
+  <%end%>
+  
   <%= link_to "View All", snippets_path %>
 </p>
+
+<script>
+    SyntaxHighlighter.all()
+</script>
