@@ -316,3 +316,17 @@ label {
 	width: 850px;
 	height: 70px;
 }
+
+
+#tags-new{
+    margin-bottom:30px;
+    margin-top:10px;
+    display:block;
+    min-height:20px;
+}
+
+.tag-delete{
+	background-color: #9ad999;
+	color:#FFF;
+	border: 0px;
+}

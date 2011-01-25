@@ -6,3 +6,10 @@ add tag ajaxeado
 list tageados
 search ajaxeado
 pagination ajaxeada
+
+
+    <% form_tag new_tag_path, :method => :get, :id => "formtag", :remote => true do %>
+             <%= text_field_tag :tag %>
+             <%= submit_tag "Add Tag", :id=>"addtag"%>
+             <div id="tags-new"></div>
+    <% end %>

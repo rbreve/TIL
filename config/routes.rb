@@ -1,5 +1,6 @@
 Html5snippets::Application.routes.draw do
   resources :snippets
+  resources :tags
   match '/snippets/:id/run' => 'snippets#run', :as => :run
   match '/auth/twitter/callback' => "sessions#create"
   match '/signout' => "sessions#destroy", :as => :signout

@@ -24,20 +24,28 @@
     <%= f.text_area :description %>
      
   </p>
-  
-      <%= f.label "Tags" %>
-          <span class="small">Comma separated tags ie. button, round, gradient, svg</span> <br/>
-
-  <%= f.text_field :tags %>
-
+ 
+      <%= f.label "Tags" %> 
+         <span class="small">ie. button, round, gradient, svg</span> <br/>
+       <%= f.text_field :tags, :id=>"tag" %> <%= link_to "Add Tag", new_tag_path(), :remote => true %>
+       
+       <ul id="tags-new" class="tags"></ul>
+        
+       
   <p><%= f.submit :value => "Post Snippet"%></p>
 <% end %>
 
-
+ 
 
 <script>
     var source;
-    $(function() {
+    $(function() {  
+        
+      
+        $(".tag-delete").live('click',function(){
+            $(this).parent().remove();
+            return false;
+        })
         
         $("#b").click(function(){
             if($(this).attr("checked")){
@@ -47,6 +55,7 @@
                 $("#snippet_code").val(source);
             }
         });
+       
     });
 
     
