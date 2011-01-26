@@ -27,22 +27,21 @@
  
       <%= f.label "Tags" %> 
          <span class="small">ie. button, round, gradient, svg</span> <br/>
-       <%= f.text_field :tags, :id=>"tag" %> <%= link_to "Add Tag", new_tag_path(), :remote => true %>
-       
+       <input type="text" id="tag"> <%= link_to "Add Tag", new_tag_path(), :remote => true %>
+       <%= f.hidden_field :tags, :id=>"tags"%>
        <ul id="tags-new" class="tags"></ul>
         
-       
-  <p><%= f.submit :value => "Post Snippet"%></p>
-<% end %>
+    <button class="cupid-blue center">Post Snippet</button> 
+ <% end %>
 
  
 
 <script>
     var source;
+    var tags = [];
     $(function() {  
-        
-      
         $(".tag-delete").live('click',function(){
+            tags.splice(tags.indexOf($(this).val()), 1);
             $(this).parent().remove();
             return false;
         })

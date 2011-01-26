@@ -22,13 +22,13 @@
 <% unless @snippet.tags.empty? %>
 
     <div class="tags-wrapper">
-        <ul class="tags">
+       
         <% for tag in @snippet.tags %>
-            <li class="rounded10">
-            <%= tag.name %>
-            </li>
+             
+            <%= link_to tag.name, snippets_path(:tag=>tag.name), :class=>"tag rounded10" %>
+            
         <%end%>
-        <ul>
+       
     </div>
      
 <%end%>

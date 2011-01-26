@@ -1,3 +1,6 @@
+/*
+Some CSS code buttons by https://github.com/ubuwaits/css3-buttons/blob/gh-pages/css/buttons.css
+*/
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {
 	margin: 0;
 	padding: 0;
@@ -43,11 +46,11 @@ abbr,acronym {
 
 body {
 	background-color: #a3c2c7;
-font-family: "museo-sans-1","museo-sans-2";
+	font-family: "museo-sans-1","museo-sans-2";
 }
 
 .center {
-	margin: auto;
+	margin-left: 360px;
 }
 
 .left {
@@ -78,7 +81,12 @@ input, textarea {
 /* Rounded */
 
 .white-shadow {
-	text-shadow: white 0px 1px 0px;
+	text-shadow: white 1px 1px 1px;
+}
+
+.gray-shadow{
+	box-shadow: gray 2px 2px 2px;
+
 }
 
 .rounded-top-5 {
@@ -191,6 +199,7 @@ label {
 
 #user-login {
 	float: right;
+	margin-top: 5px;
 }
 
 #flash_notice, #flash_error, #flash_alert {
@@ -243,8 +252,7 @@ label {
 #sourcecode {
   	display: inline-block;
  	width: 840px;
-	padding: 3px;
- }
+  }
  
 
 .tags-wrapper {
@@ -258,8 +266,7 @@ label {
 	
 }
 
-.tags li {
-	list-style: none;
+.tag{
 	float: left;
 	padding: 2px 5px;
 	background-color: #9ad999;
@@ -268,6 +275,11 @@ label {
 	color: white;
 }
 
+.tag:hover{
+	text-decoration: none;
+	background-color: #a7eaa6;
+
+}
 /*List Snippets*/
 
 .snippet-link:hover {
@@ -329,4 +341,115 @@ label {
 	background-color: #9ad999;
 	color:#FFF;
 	border: 0px;
+}
+
+
+/* Buttons */
+
+
+button:hover {
+  cursor: pointer;
+}
+ 
+.punch {
+	  padding:5px 10px 5px 10px;
+
+  background: #a3c9a3;
+   -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: inset 0 1px 10px 1px #e7f7e4, 0px 1px 0 #a3c9a3, 0 6px 0px #475b48, 0 8px 3px 1px #111;
+  -webkit-box-shadow: inset 0 1px 10px 1px #e7f7e4, 0px 1px 0 #a3c9a3, 0 6px 0px #475b48, 0 3px 4px 1px #111;
+  box-shadow: inset 0 1px 10px 1px #e7f7e4, 0px 1px 0 #a3c9a3, 0 6px 0px #475b48, 0 3px 4px 1px #111;
+  color: #fff;
+  font-size: 14px;
+   line-height: 1;
+  margin-bottom: 10px;
+   text-align: center;
+  text-shadow: 0px -1px 1px gray;
+  width: 190px;
+  -webkit-background-clip: padding-box;
+  margin: 0px 5px 0px 5px;
+}
+
+.punch:hover {
+  -moz-box-shadow: inset 0 0px 20px 1px #dcffd3, 0px 1px 0 #dcffd3, 0 6px 0px #475b48, 0 3px 4px 1px #111;
+  -webkit-box-shadow: inset 0 0px 20px 1px #dcffd3, 0px 1px 0 #dcffd3, 0 6px 0px #475b48, 0 3px 4px 1px #111;
+  box-shadow: inset 0 0px 20px 1px #dcffd3, 0px 1px 0 #dcffd3, 0 6px 0px #475b48, 0 3px 4px 1px #111;
+  cursor: pointer;
+   text-decoration: none;
+
+}
+
+.punch:active {
+  -moz-box-shadow: inset 0 1px 10px 1px #475b48, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111;
+  -webkit-box-shadow: inset 0 1px 10px 1px #475b48, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111;
+  box-shadow: inset 0 1px 10px 1px #475b48, 0 1px 0 #1d2c4d, 0 2px 0 #1f3053, 0 4px 3px 0 #111;
+ }
+
+
+.button_m{
+	background-color: #6fa3f6;
+	color: navy;
+	padding: 6px;
+	border: 1px solid #395680;
+ }
+
+
+.button_m:hover{
+		text-decoration: none;
+		background-color: #648bc0;
+
+}
+
+
+
+ 
+/* cupid blue (inspired by okcupid.com)
+*******************************************************************************/
+button.cupid-blue {
+  background: #d7e5f5;
+  background: -moz-linear-gradient(0% 100% 90deg,#cbe0f5, #d7e5f5);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d7e5f5), to(#cbe0f5));
+  border-top: 1px solid #abbbcc;
+  border-left: 1px solid #a7b6c7;
+  border-bottom: 1px solid #a1afbf;
+  border-right: 1px solid #a7b6c7;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: inset 0 1px 0 0 #fff;
+  -webkit-box-shadow: inset 0 1px 0 0 #fff;
+  box-shadow: inset 0 1px 0 0 #fff;
+  color: #1a3e66;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 13px 0 13px 0;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+  width: 150px;
+}
+
+button.cupid-blue:hover {
+  background: #ccd9e8;
+  background: -moz-linear-gradient(0% 100% 90deg,#c1d4e8, #ccd9e8);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccd9e8), to(#c1d4e8));
+  border-top: 1px solid #a1afbf;
+  border-left: 1px solid #9caaba;
+  border-bottom: 1px solid #96a3b3;
+  border-right: 1px solid #9caaba;
+  -moz-box-shadow: inset 0 1px 0 0 #f2f2f2;
+  -webkit-box-shadow: inset 0 1px 0 0 #f2f2f2;
+  box-shadow: inset 0 1px 0 0 #f2f2f2;
+  color: #163659;
+  cursor: pointer;
+}
+
+button.cupid-blue:active {
+  border: 1px solid #8c98a7;
+  -moz-box-shadow: inset 0 0 4px 2px #abbccf, 0 0 1px 0 #eee;
+  -webkit-box-shadow: inset 0 0 4px 2px #abbccf, 0 0 1px 0 #eee;
+  box-shadow: inset 0 0 4px 2px #abbccf, 0 0 1px 0 #eee;
 }

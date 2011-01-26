@@ -21,10 +21,13 @@
     </a>
     
     <div id="user-login">
+    <%= link_to "New Snippet", new_snippet_path, :class=>"punch" %>
+    
+        
     <%if current_user%>
         Welcome <strong><%= current_user.name %></strong> | <%= link_to "Sign out", signout_path() %>
     <%else%>
-        <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+        <%= link_to "Sign In with Twitter", "/auth/twitter", :class=>"minimal" %>
     <%end%>
     </div>
     

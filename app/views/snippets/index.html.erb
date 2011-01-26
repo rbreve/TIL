@@ -8,17 +8,13 @@
     
     <% unless snippet.tags.empty? %>
         <div class="tags-wrapper">
-        <ul class="tags">
-        <% for tag in snippet.tags %>
-            <li class="rounded10">
-            <%= tag.name %>
-            </li>
+         <% for tag in snippet.tags %>
+                       <%= link_to tag.name, snippets_path(:tag=>tag.name), :class=>"tag rounded10" %>
+
         <%end%>
-        <ul>
-        </div>
+         </div>
      <%end%>
     
     </div>
    <% end %>
  
-<p><%= link_to "New Snippet", new_snippet_path %></p>
