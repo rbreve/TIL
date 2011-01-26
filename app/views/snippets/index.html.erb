@@ -1,3 +1,8 @@
+  <% if params[:tag]%>
+  <div class="list-title">
+    Snippets tagged with <span class="rounded10 tag-title"><%= params[:tag] %></span>
+  </div>
+  <% end %>
   
   <% for snippet in @snippets %>
    <div class="snippet rounded5">
