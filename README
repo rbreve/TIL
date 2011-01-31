@@ -13,3 +13,12 @@ pagination ajaxeada
              <%= submit_tag "Add Tag", :id=>"addtag"%>
              <div id="tags-new"></div>
     <% end %>
+    
+    
+    
+1) Situacion Actual
+2) Moverse en HN
+3) Jorge Moverse Mas 
+4) Yo $$
+
+Desmotivante

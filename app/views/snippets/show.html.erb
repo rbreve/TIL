@@ -50,17 +50,18 @@ Version <%=@snippet.version%>
  | <%= link_to "Run Demo", run_path(), :target => "_blank"%>
 </div>
 
+  <%if current_user == @snippet.user%>
 
 <p>
   <%= link_to "Edit", edit_snippet_path(@snippet) %> |
   
-  <%if current_user == @snippet.user%>
       <%= link_to "Destroy", @snippet, :confirm => 'Are you sure?', :method => :delete %> |
-  <%end%>
-  
-  <%= link_to "View All", snippets_path %>
-</p>
+  </p>
 
+  <%end%>
+  <p>
+  <%= link_to "View All Snippets", snippets_path %>
+</p>
 <script>
     SyntaxHighlighter.all()
 </script>

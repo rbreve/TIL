@@ -19,7 +19,6 @@ class SnippetsController < ApplicationController
   def run
       @snippet = Snippet.find(params[:id])
       render :action => 'run', :layout => 'run'
-  
   end
   
   def new
