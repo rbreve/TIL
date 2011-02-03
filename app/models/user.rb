@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :snippets
+  has_many :votes
   
   def self.create_with_omniauth(auth)
     create! do |user|

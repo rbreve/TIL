@@ -1,0 +1,7 @@
+<% if @snippet and not @voted %>
+$("#points").html("<%=@snippet.votes_count+1%>");
+<%end%>
+
+<% if @nologin %>
+    $("#login-popup").fadeIn();
+<%end%>

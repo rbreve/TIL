@@ -12,10 +12,17 @@
 <%= javascript_include_tag "shBrushXml" %>
 
 
-
 <h1>
-  <%= @snippet.name %>
+    <div class="points-box rounded5">
+    <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
+    <div id="points"><%= @snippet.votes_count %></div>
+    </div> <%= @snippet.name %>
 </h1>
+
+<div id="login-popup" class="rounded5 smallborder">
+   <h3> You must login to vote.</h3>
+    <a href="/auth/twitter?next=lol">Login with Twitter</a>
+</div>
 
 <%= @snippet.description %>
 
@@ -37,17 +44,7 @@
 
 
 <div>
-
-Version <%=@snippet.version%>
-
-<%if @snippet.version > 1%>
-    | <%= link_to "Previous version", :version=>@snippet.version-1%>
-<%end%>
-
-<%if params[:version] %>
-    | <%= link_to "Latest version", :version=>nil%>
-<%end%>
- | <%= link_to "Run Demo", run_path(), :target => "_blank"%>
+   <%= link_to "Run Demo", run_path(), :target => "_blank"%>
 </div>
 
   <%if current_user == @snippet.user%>
@@ -63,5 +60,5 @@ Version <%=@snippet.version%>
   <%= link_to "View All Snippets", snippets_path %>
 </p>
 <script>
-    SyntaxHighlighter.all()
+    SyntaxHighlighter.all();
 </script>

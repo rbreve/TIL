@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110122015250) do
+ActiveRecord::Schema.define(:version => 20110202171103) do
 
   create_table "snippets", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20110122015250) do
     t.text     "description"
     t.integer  "points",      :default => 0
     t.integer  "views",       :default => 0
+    t.integer  "votes_count", :default => 0
   end
 
   create_table "taggings", :force => true do |t|
@@ -38,6 +39,11 @@ ActiveRecord::Schema.define(:version => 20110122015250) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "user_votes", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -70,5 +76,14 @@ ActiveRecord::Schema.define(:version => 20110122015250) do
   add_index "versions", ["user_id", "user_type"], :name => "index_versions_on_user_id_and_user_type"
   add_index "versions", ["user_name"], :name => "index_versions_on_user_name"
   add_index "versions", ["versioned_id", "versioned_type"], :name => "index_versions_on_versioned_id_and_versioned_type"
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.integer  "snippet_id"
+    t.string   "snippet_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

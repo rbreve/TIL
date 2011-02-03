@@ -1,9 +1,12 @@
 Html5snippets::Application.routes.draw do
   resources :snippets
   resources :tags
+  resources :votes
+  
   match '/snippets/:id/run' => 'snippets#run', :as => :run
   match '/auth/twitter/callback' => "sessions#create"
   match '/signout' => "sessions#destroy", :as => :signout
+  match '/voteup/:snippet_id' => "votes#voteup", :as => :voteup
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

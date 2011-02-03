@@ -7,6 +7,8 @@ class SnippetsController < ApplicationController
       @snippets = Snippet.tagged_with(params[:tag])
     end
     
+    session[:next]=nil
+
   end
   
   def show
@@ -14,6 +16,9 @@ class SnippetsController < ApplicationController
     @snippet.views+=1
     @snippet.save()
     @snippet.revert_to(params[:version].to_i) if params[:version]
+    
+    session[:next]=snippet_path(@snippet)
+
   end
   
   def run
