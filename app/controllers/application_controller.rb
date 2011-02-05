@@ -9,10 +9,11 @@ class ApplicationController < ActionController::Base
   end
   
   def authenticate_user
-    if @current_user
+    if session[:user_id]
       true
     else
-      false
+      redirect_to root_url
+      return
     end
   end
 end

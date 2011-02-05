@@ -1,33 +1,68 @@
-<% title "Snippet" %>
 
-<%= stylesheet_link_tag "prettify" %>
-<%= javascript_include_tag "prettify" %>
+<!-- <%= stylesheet_link_tag "prettify" %>
+<%= javascript_include_tag "prettify" %> -->
 
-<p>
-  <strong>Name:</strong>
-  <%= @snippet.name %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @snippet.user.name %>
-</p>
-<div>
+<%= stylesheet_link_tag "shCore" %>
 
-<pre class="prettyprint lang-html"><%= @snippet.code %></pre>
-Version <%=@snippet.version%>
+<%= stylesheet_link_tag "shThemeDefault" %>
+<%= javascript_include_tag "shCore" %>
+<%= javascript_include_tag "shBrushCss" %>
+<%= javascript_include_tag "shBrushXml" %>
 
-<%if @snippet.version > 1%>
-    | <%= link_to "Previous version", :version=>@snippet.version-1%>
-<%end%>
+<%=content_for(:title, @snippet.name + " " + @snippet.tag_list.join(" "))%>
 
-<%if params[:version] %>
-    | <%= link_to "Latest version", :version=>nil%>
-<%end%>
- | <%= link_to "Run Demo", run_path(), :target => "_blank"%>
+ 
+    <div class="points-box rounded5">
+    <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
+    <div id="points"><h1><%= @snippet.votes_count %></h1></div>
+    </div>
+    
+    <div class="snippet-title">
+    <h1> <%= @snippet.name %></h1>
+    </div>
+
+<div id="login-popup" class="rounded5 darkborder gray-shadow">
+   <h3> You must login to vote.</h3>
+    <a href="/auth/twitter?next=lol">Login with Twitter</a>
 </div>
+
+<div class="description-show grayfont">
+<%= simple_format(@snippet.description) %>
+</div>
+
+<% unless @snippet.tags.empty? %>
+
+    <div class="tags-wrapper">
+       
+        <% for tag in @snippet.tags %>
+             
+            <%= link_to tag.name, snippets_path(:tag=>tag.name), :class=>"tag rounded10" %>
+            
+        <%end%>
+       
+    </div>
+     
+<%end%>
+
+<pre id="sourcecode" class="brush: css; html-script: true; gutter: false; " ><code><%= @snippet.code %></code></pre>
+
+
+<div id="rundemo" class="rounded5">
+   <%= link_to image_tag("/images/play.png") + " Run Demo", run_path(), :target => "_blank"%>
+</div>
+
+  <%if current_user == @snippet.user%>
 
 <p>
   <%= link_to "Edit", edit_snippet_path(@snippet) %> |
-  <%= link_to "Destroy", @snippet, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", snippets_path %>
+  
+      <%= link_to "Destroy", @snippet, :confirm => 'Are you sure?', :method => :delete %> |
+  </p>
+
+  <%end%>
+  <p>
+  <%= link_to "View All Snippets", snippets_path %>
 </p>
+<script>
+    SyntaxHighlighter.all();
+</script>

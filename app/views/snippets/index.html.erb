@@ -1,11 +1,57 @@
-<% title "Snippets" %>
- 
-  <% for snippet in @snippets %>
-  <div>
-      <%= link_to snippet.name, snippet_path(snippet) %> 
-      <%= link_to "Edit", edit_snippet_path(snippet) %> 
-      <%= link_to "Destroy", snippet, :confirm => 'Are you sure?', :method => :delete %> 
-    </div>
+  <% if params[:tag]%>
+  <div class="list-title">
+    Snippets tagged with <span class="rounded10 tag-title"><%= params[:tag] %></span>
+  </div>
   <% end %>
+  
+  
+  
+  <%=link_to_if(@sort=="popular",  "Popular", sort_path("popular"), :class=>"sort selected rounded5") do
+      link_to("Popular", sort_path("popular"), :class=>"sort rounded5")
+  end %>
+  
+  
+  <%=link_to_if(@sort=="recent",  "Recent", sort_path("recent"), :class=>"sort selected rounded5") do
+      link_to("Recent", sort_path("recent"), :class=>"sort rounded5")
+  end %>
+  
+   
+  <div id="search">
+  <%= form_tag snippets_path, :method => 'get' do %>
+  <%= text_field_tag :search, params[:search], :placeholder=>"Search"%>
+  <% end %>
+  </div>
+  
+  <div id="snippets">
+      
+  <% for snippet in @snippets %>
+   <div class="snippet rounded5">
+     <div class="points-box-list rounded5"> <h1> <%= snippet.votes_count %> </h1></div> 
+    
+        <div class="snippet-title">
+            <h1>
+      <%= link_to snippet.name, snippet_path(snippet), :class=>"snippet_link" %>  </h1>
+        </div>
+        
+       
+        
+    <div class="description tk-museo-sans grayfont">
+      <%= truncate(snippet.description,:length => 150) %>
+    </div>
+    
+    <% unless snippet.tags.empty? %>
+        <div class="tags-wrapper">
+         <% for tag in snippet.tags %>
+           <%= link_to tag.name, snippets_path(:tag=>tag.name), :class=>"tag rounded10" %>
+
+        <%end%>
+         </div>
+     <%end%>
+    
+    </div>
+   <% end %>
+   
+   </div>
+   
+   <%= will_paginate @snippets%>
  
-<p><%= link_to "New Snippet", new_snippet_path %></p>
