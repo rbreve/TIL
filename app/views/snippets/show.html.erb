@@ -1,6 +1,4 @@
 
-
-
 <!-- <%= stylesheet_link_tag "prettify" %>
 <%= javascript_include_tag "prettify" %> -->
 
@@ -11,20 +9,26 @@
 <%= javascript_include_tag "shBrushCss" %>
 <%= javascript_include_tag "shBrushXml" %>
 
+<%=content_for(:title, @snippet.name + " " + @snippet.tag_list.join(" "))%>
 
-<h1>
+ 
     <div class="points-box rounded5">
     <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
-    <div id="points"><%= @snippet.votes_count %></div>
-    </div> <%= @snippet.name %>
-</h1>
+    <div id="points"><h1><%= @snippet.votes_count %></h1></div>
+    </div>
+    
+    <div class="snippet-title">
+    <h1> <%= @snippet.name %></h1>
+    </div>
 
-<div id="login-popup" class="rounded5 smallborder">
+<div id="login-popup" class="rounded5 darkborder gray-shadow">
    <h3> You must login to vote.</h3>
     <a href="/auth/twitter?next=lol">Login with Twitter</a>
 </div>
 
-<%= @snippet.description %>
+<div class="description-show grayfont">
+<%= simple_format(@snippet.description) %>
+</div>
 
 <% unless @snippet.tags.empty? %>
 
@@ -43,8 +47,8 @@
 <pre id="sourcecode" class="brush: css; html-script: true; gutter: false; " ><code><%= @snippet.code %></code></pre>
 
 
-<div>
-   <%= link_to "Run Demo", run_path(), :target => "_blank"%>
+<div id="rundemo" class="rounded5">
+   <%= link_to image_tag("/images/play.png") + " Run Demo", run_path(), :target => "_blank"%>
 </div>
 
   <%if current_user == @snippet.user%>

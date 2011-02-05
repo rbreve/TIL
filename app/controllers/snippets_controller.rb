@@ -1,8 +1,11 @@
 class SnippetsController < ApplicationController
-  before_filter :authenticate_user, :except => ["index", "show"]
+  before_filter :authenticate_user, :except => ["index", "show", "run"]
   
   def index
-    @snippets = Snippet.order("created_at desc")
+    @sort=params[:sort_by]
+    
+    @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc").paginate(:per_page => 10, :page => params[:page])
+    
     if params[:tag]
       @snippets = Snippet.tagged_with(params[:tag])
     end
@@ -16,7 +19,6 @@ class SnippetsController < ApplicationController
     @snippet.views+=1
     @snippet.save()
     @snippet.revert_to(params[:version].to_i) if params[:version]
-    
     session[:next]=snippet_path(@snippet)
 
   end

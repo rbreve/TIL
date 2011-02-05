@@ -1,5 +1,5 @@
 <% if @snippet and not @voted %>
-$("#points").html("<%=@snippet.votes_count+1%>");
+$("#points h1").html("<%=@snippet.votes_count+1%>");
 <%end%>
 
 <% if @nologin %>

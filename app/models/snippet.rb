@@ -14,4 +14,22 @@ class Snippet < ActiveRecord::Base
       vote.save()
   end
   
+  def self.sortby(by)
+    if by == "popular"
+      order("votes_count DESC")
+    elsif by == "recent"
+      order("created_at DESC")
+    else
+      scoped
+    end
+  end
+  
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
 end
