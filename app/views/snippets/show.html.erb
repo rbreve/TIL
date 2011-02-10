@@ -17,7 +17,7 @@
     <div id="points"><h1><%= @snippet.votes_count %></h1></div>
     </div>
     
-    <div class="snippet-title">
+    <div class="snippet-title-show">
     <h1> <%= @snippet.name %></h1>
     </div>
 
@@ -47,9 +47,19 @@
 <pre id="sourcecode" class="brush: css; html-script: true; gutter: false; " ><code><%= @snippet.code %></code></pre>
 
 
-<div id="rundemo" class="rounded5">
-   <%= link_to image_tag("/images/play.png") + " Run Demo", run_path(), :target => "_blank"%>
+    <%= link_to image_tag("/images/play.png") + " Run Demo", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
+ 
+<% if current_user%>
+<div id="actions">
+    <% unless saved(@snippet.id)%>
+        <%= link_to "Save", saves_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post, :id=>'save' %>
+    <%else%>
+        Saved
+    <%end%> - Report
 </div>
+<%end%>
+
+    
 
   <%if current_user == @snippet.user%>
 

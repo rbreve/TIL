@@ -1,0 +1,20 @@
+<div class="snippet rounded5">
+    <div class="points-box-list rounded5"> <h1> <%= snippet.votes_count %> </h1></div> 
+
+    <div class="snippet-title">
+        <h1> <%= link_to snippet.name, snippet_path(snippet), :class=>"snippet_link" %>  </h1>
+    </div>
+    
+    <div class="description tk-museo-sans grayfont">
+        <%= truncate(snippet.description,:length => 150) %>
+    </div>
+
+    <% unless snippet.tags.empty? %>
+    <div class="tags-wrapper">
+        <% for tag in snippet.tags %>
+            <%= link_to tag.name, snippets_path(:tag=>tag.name), :class=>"tag rounded10" %>
+        <%end%>
+    </div>
+    <%end%>
+
+</div>

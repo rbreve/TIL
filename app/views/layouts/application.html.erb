@@ -24,7 +24,7 @@
     <%= link_to "Add a Snippet", new_snippet_path, :class=>"cupid-blue small-button" %>
     
     <%if current_user%>
-        Welcome <strong><%= current_user.name %></strong> | <%= link_to "Sign out", signout_path() %>
+        Welcome <strong><%= current_user.name %></strong> | <%= link_to "My Snippets" , saves_path()%> | <%= link_to "Sign out", signout_path() %>
     <%else%>
         <%= link_to "Sign In with Twitter", "/auth/twitter", :class=>"minimal" %>
     <%end%>

@@ -3,6 +3,8 @@ class Snippet < ActiveRecord::Base
   attr_accessible :name, :code, :description
   belongs_to :user
   has_many :votes
+  has_many :saves
+  
   acts_as_taggable
   acts_as_taggable_on :tags
   

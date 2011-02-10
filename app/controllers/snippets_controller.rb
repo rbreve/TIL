@@ -3,7 +3,7 @@ class SnippetsController < ApplicationController
   
   def index
     @sort=params[:sort_by]
-    
+    @sort ||= "popular"
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc").paginate(:per_page => 10, :page => params[:page])
     
     if params[:tag]

@@ -152,7 +152,7 @@ h2 {
 }
 
 h1 {
-	font-size: 38px;
+	font-size: 32px;
 	color: #2c7c95;
 }
 
@@ -310,8 +310,6 @@ label {
 /*Show Snippet*/
 
 #rundemo img{
-	padding: 3px 6px 3px 6px;
-	margin-top: 4px;
 	-moz-border-radius: 10px;
 	-khtml-border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -320,11 +318,17 @@ label {
 }
 
 #rundemo{
-	padding: 3px;
+	padding: 6px;
 	background-color: white;
 	width: 120px;
 
 }
+
+#rundemo:hover{
+	text-decoration: none;
+	background: #bce2fb;
+}
+
 
 #login-popup{
 	background-color: rgba(255,254,255,0.95);
@@ -337,8 +341,11 @@ label {
 	margin-top: 55px;
 	
 	display: none;
-	
-	
+}
+
+
+#actions{
+	float: right;
 }
 
 /*List Snippets*/
@@ -375,16 +382,25 @@ label {
 	float: right;
 }
 
+
+
+.snippet-title-show{
+	width: 810px;
+	float: right;
+}
+
+
+
 .description{
 	float: right;
-	width: 795px;
+	width: 790px;
 	margin-bottom: 10px;
 }
 
 
 .description-show{
 	float: right;
-	width: 780px;
+	width: 800px;
 	margin-bottom: 10px;
 	margin-right: 10px;
 	
