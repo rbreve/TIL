@@ -4,16 +4,18 @@
   </div>
   <% end %>
   
-  
+  <%unless params[:tag]%>
   
   <%=link_to_if(@sort=="popular",  "Popular", sort_path("popular"), :class=>"sort selected rounded5") do
       link_to("Popular", sort_path("popular"), :class=>"sort rounded5")
   end %>
+
   
   
   <%=link_to_if(@sort=="recent",  "Recent", sort_path("recent"), :class=>"sort selected rounded5") do
       link_to("Recent", sort_path("recent"), :class=>"sort rounded5")
   end %>
+  
   
    
   <div id="search">
@@ -21,6 +23,8 @@
   <%= text_field_tag :search, params[:search], :placeholder=>"Search"%>
   <% end %>
   </div>
+  
+    <%end%>
   
   <div id="snippets">
       

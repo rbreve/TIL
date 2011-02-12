@@ -7,7 +7,7 @@ class SnippetsController < ApplicationController
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc").paginate(:per_page => 10, :page => params[:page])
     
     if params[:tag]
-      @snippets = Snippet.tagged_with(params[:tag])
+      @snippets = Snippet.order("votes_count desc").tagged_with(params[:tag]).paginate(:per_page => 10, :page => params[:page])
     end
     
     session[:next]=nil
@@ -19,8 +19,8 @@ class SnippetsController < ApplicationController
     @snippet.views+=1
     @snippet.save()
     @snippet.revert_to(params[:version].to_i) if params[:version]
+    @report=Report.new
     session[:next]=snippet_path(@snippet)
-
   end
   
   def run

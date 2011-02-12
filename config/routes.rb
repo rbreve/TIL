@@ -1,5 +1,7 @@
 Html5snippets::Application.routes.draw do
   
+  resources :reports
+
   resources :saves
   resources :snippets
   resources :tags

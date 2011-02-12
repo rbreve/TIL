@@ -309,24 +309,18 @@ label {
 
 /*Show Snippet*/
 
-#rundemo img{
-	-moz-border-radius: 10px;
-	-khtml-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	
-}
+ 
 
 #rundemo{
-	padding: 6px;
-	background-color: white;
+	padding: 6px 8px 6px 22px;
 	width: 120px;
-
+	background: white url(/images/play.png) no-repeat 9px 7px;
 }
 
 #rundemo:hover{
 	text-decoration: none;
-	background: #bce2fb;
+ 	background: #bce2fb url(/images/play.png) no-repeat 9px 7px;
+
 }
 
 
@@ -347,6 +341,18 @@ label {
 #actions{
 	float: right;
 }
+
+#actions a{
+	margin-left: 15px;
+}
+
+#report-form{
+	margin-top: 5px;
+	background-color: white;
+	padding: 5px;
+	float: right;
+	display: none;
+ }
 
 /*List Snippets*/
 

@@ -10,14 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110207012758) do
+ActiveRecord::Schema.define(:version => 20110211224857) do
 
-  create_table "saves", :force => true do |t|
+  create_table "reports", :force => true do |t|
+    t.integer  "snippet_id"
     t.integer  "user_id"
-    t.integer  "snippet_od"
+    t.text     "reason"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+# Could not dump table "saves" because of following StandardError
+#   Unknown type '' for column 'snippet_id'
 
   create_table "snippets", :force => true do |t|
     t.string   "name"

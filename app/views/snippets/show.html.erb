@@ -47,17 +47,33 @@
 <pre id="sourcecode" class="brush: css; html-script: true; gutter: false; " ><code><%= @snippet.code %></code></pre>
 
 
-    <%= link_to image_tag("/images/play.png") + " Run Demo", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
- 
-<% if current_user%>
+    <%= link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
+
 <div id="actions">
+
+<% if current_user%>
     <% unless saved(@snippet.id)%>
-        <%= link_to "Save", saves_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post, :id=>'save' %>
+        <%= link_to "Save", saves_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post, :id=>'save' %> 
     <%else%>
-        Saved
-    <%end%> - Report
-</div>
+        Saved 
+    <%end%>
 <%end%>
+    <%= link_to "Report", "#", :id=>'report' %>
+</div>
+<br/>
+ <div id="report-form" class="rounded5 darkborder gray-shadow">
+        <%= form_for(@report, :remote => true) do |f| %>
+            <%= f.hidden_field :snippet_id, :value=>@snippet.id %>
+            <label>Reason:</label>
+            <p>
+                
+            <%= f.text_area :reason, :cols=>15, :rows=>5 %>
+            <br/>
+                <%= f.submit :class=>"cupid-blue", :value=>"Send"%>
+            </p>
+        <% end %>
+    </div>
+
 
     
 

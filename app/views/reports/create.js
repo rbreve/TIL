@@ -1,0 +1,1 @@
+$("#report-form").html("Thank you!");
