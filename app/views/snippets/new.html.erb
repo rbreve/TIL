@@ -1,7 +1,15 @@
 <% title "Post a new snippet" %>
 
+<%= stylesheet_link_tag "autoSuggest" %>
+
 <%= javascript_include_tag "beautify-html" %>
- 
+<%= javascript_include_tag "jquery.autoSuggest.minified" %>
+
+<script>
+    $(function(){
+    });
+</script>
+
  
 <%= render 'form' %>
 

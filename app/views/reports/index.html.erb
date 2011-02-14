@@ -1,6 +1,6 @@
 <h1>Listing reports</h1>
 
-<table>
+<table width="100%">
   <tr>
     <th>Snippet</th>
     <th>User</th>
@@ -12,7 +12,7 @@
 
 <% @reports.each do |report| %>
   <tr>
-    <td><%= report.snippet_id %></td>
+    <td><%= link_to report.snippet.name, snippet_path(report.snippet) %></td>
     <td><%= report.user_id %></td>
     <td><%= report.reason %></td>
     <td><%= link_to 'Show', report %></td>

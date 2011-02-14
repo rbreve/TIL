@@ -5,6 +5,8 @@
 <%= stylesheet_link_tag "shCore" %>
 
 <%= stylesheet_link_tag "shThemeDefault" %>
+
+
 <%= javascript_include_tag "shCore" %>
 <%= javascript_include_tag "shBrushCss" %>
 <%= javascript_include_tag "shBrushXml" %>
@@ -90,5 +92,16 @@
   <%= link_to "View All Snippets", snippets_path %>
 </p>
 <script>
+
+    
     SyntaxHighlighter.all();
+    
+    $(function(){
+        $("#report").click(function(){
+            event.preventDefault();
+            $("#report-form").fadeIn(); 
+        });
+    
+    });
+    
 </script>

@@ -2,6 +2,7 @@ class Snippet < ActiveRecord::Base
 #  versioned
   attr_accessible :name, :code, :description
   belongs_to :user
+  has_many :reports
   has_many :votes
   has_many :saves
   

@@ -40,6 +40,9 @@
     var source;
     var tags = [];
     $(function() {  
+        
+        $("tag").autoSuggest("/tags/index.js");
+
         $(".tag-delete").live('click',function(){
             tags.splice(tags.indexOf($(this).val()), 1);
             $(this).parent().remove();

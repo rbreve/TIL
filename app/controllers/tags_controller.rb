@@ -5,4 +5,12 @@ class TagsController < ApplicationController
         format.js
     end
   end
+  
+  def index
+    @tag=params[:tag]
+    @tags=Snippet.tag_counts_on(:tags)
+    respond_to do |format|
+        format.json { render :json => @tags }
+    end
+  end
 end
