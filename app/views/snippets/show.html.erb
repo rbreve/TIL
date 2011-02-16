@@ -10,7 +10,7 @@
 <%= javascript_include_tag "shCore" %>
 <%= javascript_include_tag "shBrushCss" %>
 <%= javascript_include_tag "shBrushXml" %>
-
+ 
 <%=content_for(:title, @snippet.name + " " + @snippet.tag_list.join(" "))%>
 
  
@@ -94,9 +94,27 @@
 <script>
 
     
-    SyntaxHighlighter.all();
+  
     
     $(function(){
+         SyntaxHighlighter.all();
+          
+        $(".keyword").live({
+        mouseenter:
+           function()
+           {
+            $(this).css("color","black !important");
+           },
+        mouseleave:
+           function()
+           {
+               $(this).css("color","#006699 !important");
+
+           }
+       }
+        
+        );
+        
         $("#report").click(function(){
             event.preventDefault();
             $("#report-form").fadeIn(); 
