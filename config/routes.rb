@@ -1,7 +1,6 @@
 Html5snippets::Application.routes.draw do
   
   resources :reports
-
   resources :saves
   resources :snippets
   resources :tags
@@ -12,7 +11,8 @@ Html5snippets::Application.routes.draw do
   match '/signout' => "sessions#destroy", :as => :signout
   match '/voteup/:snippet_id' => "votes#voteup", :as => :voteup
   match '/snippets/sort/:sort_by' => 'snippets#index', :as => :sort
-  match '/user/:username/saved' => 'saves#index', :as => :saved
+  match '/saved/:username' => 'saves#index', :as => :saved
+   
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

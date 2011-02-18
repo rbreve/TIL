@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110211224857) do
+ActiveRecord::Schema.define(:version => 20110218010404) do
 
   create_table "reports", :force => true do |t|
     t.integer  "snippet_id"
@@ -20,8 +20,12 @@ ActiveRecord::Schema.define(:version => 20110211224857) do
     t.datetime "updated_at"
   end
 
-# Could not dump table "saves" because of following StandardError
-#   Unknown type '' for column 'snippet_id'
+  create_table "saves", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "snippet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "snippets", :force => true do |t|
     t.string   "name"
@@ -30,9 +34,11 @@ ActiveRecord::Schema.define(:version => 20110211224857) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.integer  "points",      :default => 0
-    t.integer  "views",       :default => 0
-    t.integer  "votes_count", :default => 0
+    t.integer  "points",        :default => 0
+    t.integer  "views",         :default => 0
+    t.integer  "votes_count",   :default => 0
+    t.integer  "reports_count"
+    t.integer  "saves_count"
   end
 
   create_table "taggings", :force => true do |t|
@@ -65,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20110211224857) do
     t.integer  "karma"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   create_table "versions", :force => true do |t|
