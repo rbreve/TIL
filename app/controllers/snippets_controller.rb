@@ -3,12 +3,29 @@ class SnippetsController < ApplicationController
   
   def index
     @sort=params[:sort_by]
-    @sort ||= "popular"
-    @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc").paginate(:per_page => 10, :page => params[:page])
-    
+    #@sort ||= "popular"
+    @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc")
     if params[:tag]
       @snippets = Snippet.order("votes_count desc").tagged_with(params[:tag]).paginate(:per_page => 10, :page => params[:page])
+      
+      #@snippets = Snippet.limit(100)
     end
+    
+  
+      
+    #@snippets.sort! { |a,b| a.g <=> b.g}
+    @snippets.sort! do |a,b|
+       ta=(Time.now - a.created_at)/(1000*60) 
+       pa=a.votes_count
+       ga=(pa - 1) / (ta + 2)**1.5
+      
+       tb=(Time.now - b.created_at)/(1000*60) 
+       pb=b.votes_count
+       gb=(pb - 1) / (tb + 2)**1.5
+        print "x"
+       gb <=> ga
+    end
+    @snippets=@snippets.paginate(:per_page => 10, :page => params[:page])
     
     session[:next]=nil
 

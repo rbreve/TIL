@@ -98,7 +98,13 @@
     
     $(function(){
          SyntaxHighlighter.all();
-          
+        
+         $(".keyword").live('click', function(){
+               $.get('/ref/'+$(this).html()+'.json', function(data){
+                   alert(data.api["text"]);
+               });
+         });
+        
         $(".keyword").live({
         mouseenter:
            function()

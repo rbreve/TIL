@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :snippets
   has_many :votes
   has_many :saves
-  validates_uniqueness_of :username
+  validates :username, :uniqueness => true, :presence => true
   
   def self.create_with_omniauth(auth)
     create! do |user|

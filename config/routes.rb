@@ -1,5 +1,7 @@
 Html5snippets::Application.routes.draw do
   
+  resources :apis
+
   resources :reports
   resources :saves
   resources :snippets
@@ -12,7 +14,7 @@ Html5snippets::Application.routes.draw do
   match '/voteup/:snippet_id' => "votes#voteup", :as => :voteup
   match '/snippets/sort/:sort_by' => 'snippets#index', :as => :sort
   match '/saved/:username' => 'saves#index', :as => :saved
-   
+  match '/ref/:tag' => 'apis#showbytag', :as => :ref
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

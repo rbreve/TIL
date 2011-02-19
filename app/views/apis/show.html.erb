@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tag:</b>
+  <%= @api.tag %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @api.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_api_path(@api) %> |
+<%= link_to 'Back', apis_path %>
