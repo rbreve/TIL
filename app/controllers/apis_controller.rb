@@ -20,10 +20,15 @@ class ApisController < ApplicationController
       format.json  { render :json => @api }
     end
   end
+ 
 
   def showbytag
-    @api = Api.find_by_tag(params[:tag])
-    
+    @api = Api.find_or_create_by_tag(params[:tag])
+
+    if @api.text
+      @api.text = @api.text.gsub("<", "&lt;")
+      @api.text = @api.text.gsub(">", "&gt;")
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json  { render :json => @api }
@@ -46,7 +51,16 @@ class ApisController < ApplicationController
   def edit
     @api = Api.find(params[:id])
   end
-
+  
+  def liveedit
+    @api = Api.find_or_create_by_tag(params[:keyword])
+    @api.text = params[:text]
+    @api.save()
+    render :layout => false
+  end
+  
+  
+  
   # POST /apis
   # POST /apis.xml
   def create

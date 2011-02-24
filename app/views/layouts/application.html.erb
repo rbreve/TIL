@@ -13,6 +13,21 @@
     <%= yield(:head) %>
   </head>
   <body>
+      <div class="ref-box">
+          <div id="ref-wrapper">
+              <span class="keyword"></span>
+              <div id="ref-text" class="rounded5">
+                  <span class="text"></span><button id="edit-ref" class="cupid-blue">Edit</button>
+              </div>
+              <div id="ref-form-wrapper">
+                  <form id="ref-form">
+                      <textarea name="text" id="ref-textarea"></textarea>
+                      <button class="cupid-blue" id="save">Save</button>
+                 </form> 
+              </div>
+         </div>
+      </div>
+
     
     <div id="header">
     

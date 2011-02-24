@@ -5,23 +5,21 @@
 <%= stylesheet_link_tag "shCore" %>
 
 <%= stylesheet_link_tag "shThemeDefault" %>
-
-
 <%= javascript_include_tag "shCore" %>
 <%= javascript_include_tag "shBrushCss" %>
 <%= javascript_include_tag "shBrushXml" %>
  
 <%=content_for(:title, @snippet.name + " " + @snippet.tag_list.join(" "))%>
 
- 
-    <div class="points-box rounded5">
-    <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
-    <div id="points"><h1><%= @snippet.votes_count %></h1></div>
-    </div>
-    
-    <div class="snippet-title-show">
+<div class="points-box rounded5">
+<%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
+<div id="points"><h1><%= @snippet.votes_count %></h1></div>
+</div>
+
+<div class="snippet-title-show">
     <h1> <%= @snippet.name %></h1>
-    </div>
+</div>
+
 
 <div id="login-popup" class="rounded5 darkborder gray-shadow">
    <h3> You must login to vote.</h3>
@@ -29,7 +27,7 @@
 </div>
 
 <div class="description-show grayfont">
-<%= simple_format(@snippet.description) %>
+    <%= simple_format(@snippet.description) %>
 </div>
 
 <% unless @snippet.tags.empty? %>
@@ -92,34 +90,56 @@
   <%= link_to "View All Snippets", snippets_path %>
 </p>
 <script>
-
-    
-  
-    
     $(function(){
          SyntaxHighlighter.all();
         
          $(".keyword").live('click', function(){
-               $.get('/ref/'+$(this).html()+'.json', function(data){
-                   alert(data.api["text"]);
-               });
+             k=$(this);
+             $("#ref-form-wrapper").hide();
+             $(".ref-box #ref-text").show();
+             $.tag=$(this).html();
+             $.get('/ref/'+$.tag+'.json', function(data){
+                   //alert(data.api["text"]);
+                   //c=$(".ref-box").clone().appendTo(k);
+                   $(".ref-box .keyword").html(data.api["tag"]);
+                   $(".ref-box .text").html(data.api["text"]);
+                   $(".ref-box").fadeIn();
+            });
          });
         
+        $("#edit-ref").live('click', function(){
+            text=$(".ref-box .text").html().replace(/&gt;/g, ">").replace(/&lt;/g, "<");
+            $("#ref-textarea").val(text);
+            $(".ref-box #ref-text").hide();
+            $("#ref-form-wrapper").show();
+             
+        });
+        
         $(".keyword").live({
-        mouseenter:
-           function()
-           {
-            $(this).css("color","black !important");
-           },
-        mouseleave:
-           function()
-           {
-               $(this).css("color","#006699 !important");
-
-           }
+            mouseenter:
+               function()
+               {
+                document.body.style.cursor = "pointer";
+                $(this).css("color","black !important");
+               },
+            mouseleave:
+               function()
+               {
+                   document.body.style.cursor = "cursor";
+                   $(this).css("color","#006699 !important");
+               }
        }
         
         );
+        
+        $("#save").live('click', function(){
+             $.post('/apis/liveedit/'+$.tag,{'text':$("#ref-textarea").val(), 'tag':$.tag}, function(data){
+                 $("#ref-form-wrapper").fadeOut();
+                 $("#ref-text").html(data);
+                 $(".ref-box #ref-text").fadeIn();
+        });
+             return false;
+        });
         
         $("#report").click(function(){
             event.preventDefault();

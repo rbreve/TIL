@@ -326,3 +326,12 @@
 .syntaxhighlighter .keyword {
   font-weight: bold !important;
 }
+
+.syntaxhighlighter .ref-box {
+	border: 2px solid silver !important;
+	position: relative;
+	background-color: #EFE !important;
+	padding: 3px;
+	font-size: 11px;
+	z-index: 99;
+}

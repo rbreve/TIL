@@ -15,6 +15,7 @@ Html5snippets::Application.routes.draw do
   match '/snippets/sort/:sort_by' => 'snippets#index', :as => :sort
   match '/saved/:username' => 'saves#index', :as => :saved
   match '/ref/:tag' => 'apis#showbytag', :as => :ref
+  match '/apis/liveedit/:keyword' => 'apis#liveedit', :as => :liveedit, :via => [:post]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
