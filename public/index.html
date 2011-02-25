@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "HTML5 Snippets" %></title>
+    
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag :defaults %>
+
+    <script type="text/javascript" src="http://use.typekit.com/fke3zcj.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+   
+    <a href="/">
+    <img src="/images/logo.png">
+    </a>
+   
+  </body>
+</html>

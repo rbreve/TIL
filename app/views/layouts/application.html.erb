@@ -17,7 +17,13 @@
           <div id="ref-wrapper">
               <span class="keyword"></span>
               <div id="ref-text" class="rounded5">
-                  <span class="text"></span><button id="edit-ref" class="cupid-blue">Edit</button>
+                  <span class="text"></span><button id="edit-ref" class="cupid-blue">Edit</button> 
+                  <%if not current_user%>
+                  <div id="edit-popup" class="rounded5 darkborder gray-shadow">
+                   <h3> You must login to edit.</h3>
+                    <a href="/auth/twitter">Login with Twitter</a>
+                </div>
+                  <%end%>
               </div>
               <div id="ref-form-wrapper">
                   <form id="ref-form">
@@ -25,8 +31,13 @@
                       <button class="cupid-blue" id="save">Save</button>
                  </form> 
               </div>
+        <button id="ref-close" class="cupid-blue">✕ Close</button>
+
          </div>
+
       </div>
+      
+      
 
     
     <div id="header">

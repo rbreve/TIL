@@ -356,7 +356,10 @@ label {
 	font-weight: bold;
 }
 
-
+#ref-close{
+	float: right;
+	display: inline;
+}
 
 .ref-box textarea{
 	font-size: 11px;
@@ -386,6 +389,18 @@ label {
 	margin-top: 55px;
 	display: none;
 }
+
+#edit-popup {
+	background-color: rgba(255,254,255,0.95);
+	height: 60px;
+	width: 150px;
+	position: absolute;
+	padding: 10px;
+	font-size: 13px;
+	z-index: 99;
+ 	display: none;
+   }
+
 
 #actions {
 	float: right;

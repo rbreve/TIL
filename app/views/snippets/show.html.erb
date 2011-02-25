@@ -26,6 +26,7 @@
     <a href="/auth/twitter?next=lol">Login with Twitter</a>
 </div>
 
+
 <div class="description-show grayfont">
     <%= simple_format(@snippet.description) %>
 </div>
@@ -74,9 +75,6 @@
         <% end %>
     </div>
 
-
-    
-
   <%if current_user == @snippet.user%>
 
 <p>
@@ -108,10 +106,15 @@
          });
         
         $("#edit-ref").live('click', function(){
+        
+        <%if current_user%>
             text=$(".ref-box .text").html().replace(/&gt;/g, ">").replace(/&lt;/g, "<");
             $("#ref-textarea").val(text);
             $(".ref-box #ref-text").hide();
             $("#ref-form-wrapper").show();
+        <%else%>
+            $("#edit-popup").css("display", "inline");
+        <%end%>
              
         });
         
@@ -139,6 +142,10 @@
                  $(".ref-box #ref-text").fadeIn();
         });
              return false;
+        });
+        
+        $("#ref-close").click(function(){
+           $(".ref-box").fadeOut();
         });
         
         $("#report").click(function(){
