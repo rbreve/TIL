@@ -21,7 +21,7 @@
                   <%if not current_user%>
                   <div id="edit-popup" class="rounded5 darkborder gray-shadow">
                    <h3> You must login to edit.</h3>
-                    <a href="/auth/twitter">Login with Twitter</a>
+                    <%link_to "Sign In", login_path()</a>
                 </div>
                   <%end%>
               </div>

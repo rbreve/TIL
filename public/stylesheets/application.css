@@ -621,6 +621,14 @@ button:hover {
 	padding: 7px 7px 7px 7px;
 }
 
+/*Login*/
+
+.login{
+	width: 500px;
+	text-align: center;
+	margin: auto;
+}
+
 /* cupid blue (inspired by okcupid.com)
 *******************************************************************************/
 
