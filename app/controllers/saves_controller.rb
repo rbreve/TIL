@@ -2,8 +2,8 @@ class SavesController < ApplicationController
   def index
     #TODO hacer lo de usuario 
 
-    @user=User.find_by_username(params[:username])
-    
+    #@user=User.find_by_username(params[:username])
+    @user=User.find(params[:username])
     @saves = Save.where(:user_id=>@user.id).all
     ids=[]
     @saves.each {|s| ids << s.snippet_id}

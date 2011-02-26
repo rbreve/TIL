@@ -21,7 +21,7 @@
                   <%if not current_user%>
                   <div id="edit-popup" class="rounded5 darkborder gray-shadow">
                    <h3> You must login to edit.</h3>
-                    <%link_to "Sign In", login_path()</a>
+                    <%=link_to "Sign In", login_path()%> 
                 </div>
                   <%end%>
               </div>
@@ -36,11 +36,7 @@
          </div>
 
       </div>
-      
-      
-
-    
-    <div id="header">
+      <div id="header">
     
     <a href="/">
     <img src="/images/logo.png">
@@ -50,9 +46,9 @@
     <%= link_to "Add a Snippet", new_snippet_path, :class=>"cupid-blue small-button" %>
     
     <%if current_user%>
-        Welcome <strong><%= current_user.name %></strong> | <%= link_to "My Snippets" , saved_path("rbreve")%> | <%= link_to "Sign out", signout_path() %>
+        Welcome <strong><%= link_to current_user.name, user_path(current_user.id)%></strong> | <%= link_to "My Snippets" , saved_path(current_user.id)%> | <%= link_to "Sign out", signout_path() %>
     <%else%>
-        <%= link_to "Sign In with Twitter", "/auth/twitter", :class=>"minimal" %>
+              <%=link_to "Sign In", login_path()%> 
     <%end%>
     </div>
     
