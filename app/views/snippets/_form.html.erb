@@ -16,12 +16,10 @@
     <div id="tab1" class="tab_content">
         <%= f.text_area :code, :cols=>120 %>  
            
-    <div id="button-beautify">
-    <label> Beautify Code </label><input type="checkbox" id="b"/> 
-    </div>  
+   
     </div>
-    <div id="tab2" class="tab_content" container="http://jsfiddle.net/shorturl/">
-    <%=f.text_field :code%>
+    <div id="tab2" class="tab_content">
+    <input type="text" name="url" placeholder="http://jsfiddle.net/aBcD/" id="code-url" >
     </div>
 </div>
 

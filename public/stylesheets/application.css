@@ -306,6 +306,7 @@ label {
 /*Show Snippet*/
 
 
+
 .embed-wrapper{
 	margin-top: 10px;
 }
@@ -422,6 +423,10 @@ label {
 }
 
 /*List Snippets*/
+
+#code-url{
+	width: 500px;
+}
 
 .sort {
 	padding: 4px;

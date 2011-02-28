@@ -65,6 +65,7 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.new(params[:snippet])
     @snippet.user_id = session[:user_id]
     @snippet.tag_list = params[:snippet][:tags]
+    @snippet.code=params[:url] if params[:url] != ""
     
     if @snippet.save
       flash[:notice] = "Successfully created snippet."
