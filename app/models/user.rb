@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
         user.name = auth["user_info"]["name"]
         user.about = auth["user_info"]["description"]
         user.username=auth['user_info']['nickname']
-        user.email=auth['user_info']['email']
+        #user.email=auth['user_info']['email']
       end
 
    end
