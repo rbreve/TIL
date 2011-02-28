@@ -43,7 +43,8 @@
     </a>
     
     <div id="user-login">
-    <%= link_to "Add a Snippet", new_snippet_path, :class=>"cupid-blue small-button" %>
+         <%= link_to "✚ Add a Snippet", new_snippet_path, :class=>"cupid-blue small-button" %>
+     
     
     <%if current_user%>
         Welcome <strong><%= link_to current_user.name, user_path(current_user.id)%></strong> | <%= link_to "My Snippets" , saved_path(current_user.id)%> | <%= link_to "Sign out", signout_path() %>

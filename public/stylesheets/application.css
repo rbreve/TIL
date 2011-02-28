@@ -306,6 +306,9 @@ label {
 /*Show Snippet*/
 
 
+.embed-wrapper{
+	margin-top: 10px;
+}
 
 .ref-box{
 	display: none;
@@ -422,7 +425,7 @@ label {
 
 .sort {
 	padding: 4px;
-	background: #bce2fb;
+	background: #acd0e7;
 	color: white;
 	margin-left: 10px;
 }
@@ -617,8 +620,8 @@ button:hover {
 }
 
 .small-button {
-	font-size: 11px;
-	padding: 7px 7px 7px 7px;
+	font-size: 12px;
+	padding: 10px 10px 10px 10px;
 }
 
 /*Login*/
@@ -674,4 +677,62 @@ button:hover {
 	-moz-box-shadow: inset 0 0 4px 2px #abbccf, 0 0 1px 0 #eee;
 	-webkit-box-shadow: inset 0 0 4px 2px #abbccf, 0 0 1px 0 #eee;
 	box-shadow: inset 0 0 4px 2px #abbccf, 0 0 1px 0 #eee;
+}
+
+
+/********/
+
+ul.tabs {
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+	height: 32px; /*--Set height of tabs--*/
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+	
+}
+ul.tabs li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	height: 31px; /*--Subtract 1px from the height of the unordered list--*/
+	line-height: 31px; /*--Vertically aligns the text within the tab--*/
+	border: 1px solid #999;
+	border-left: none;
+	margin-bottom: -1px; /*--Pull the list item down 1px--*/
+	overflow: hidden;
+	position: relative;
+	background: #e0e0e0;
+}
+ul.tabs li a {
+	text-decoration: none;
+	color: #000;
+	display: block;
+	font-size: 0.8em;
+	padding: 0 20px;
+	border: 1px solid #fff; /*--Gives the bevel look with a 1px white border inside the list item--*/
+	outline: none;
+}
+ul.tabs li a:hover {
+	background: #ccc;
+}
+ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+	background: #fff;
+	border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
+}
+
+.tab_container {
+	border: 1px solid #999;
+	border-top: none;
+	overflow: hidden;
+	clear: both;
+	float: left; width: 100%;
+	background: #fff;
+	margin-bottom: 15px;
+}
+.tab_content {
+	padding: 20px;
+	font-size: 1.2em;
 }

@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-  before_filter :authenticate_user, :except => ["index", "show", "run"]
+  before_filter :authenticate_user, :except => ["index", "show", "run", "new"]
   
   def index
     @sort=params[:sort_by]
@@ -14,16 +14,19 @@ class SnippetsController < ApplicationController
   
       
     #@snippets.sort! { |a,b| a.g <=> b.g}
-    @snippets.sort! do |a,b|
-       ta=(Time.now - a.created_at)/(1000*60) 
-       pa=a.votes_count
-       ga=(pa - 1) / (ta + 2)**1.5
+    
+    unless @sort
+      @snippets.sort! do |a,b|
+         ta=(Time.now - a.created_at)/(1000*60) 
+         pa=a.votes_count
+         ga=(pa - 1) / (ta + 2)**1.5
       
-       tb=(Time.now - b.created_at)/(1000*60) 
-       pb=b.votes_count
-       gb=(pb - 1) / (tb + 2)**1.5
-        print "x"
-       gb <=> ga
+         tb=(Time.now - b.created_at)/(1000*60) 
+         pb=b.votes_count
+         gb=(pb - 1) / (tb + 2)**1.5
+          print "x"
+         gb <=> ga
+      end
     end
     @snippets=@snippets.paginate(:per_page => 10, :page => params[:page])
     
@@ -35,6 +38,9 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find(params[:id])
     @snippet.views+=1
     @snippet.save()
+    if @snippet.code =~ /^((http|https):\/\/)?jsfiddle.net\/\w+/
+      @jsfiddle=true
+    end
     @snippet.revert_to(params[:version].to_i) if params[:version]
     @report=Report.new
     session[:next]=snippet_path(@snippet)
@@ -46,10 +52,16 @@ class SnippetsController < ApplicationController
   end
   
   def new
+    unless current_user
+      print "WTF"
+      session[:next]=new_snippet_path()
+      redirect_to "/login"
+    end
     @snippet = Snippet.new
   end
   
   def create
+
     @snippet = Snippet.new(params[:snippet])
     @snippet.user_id = session[:user_id]
     @snippet.tag_list = params[:snippet][:tags]

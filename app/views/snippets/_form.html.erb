@@ -7,14 +7,25 @@
     <%= f.text_field :name %>
   </p>
    
-  <p>
-    <%= f.label :code %> 
-   <span class="small">Paste your source code here</span> <br/>
+  <ul class="tabs">
+    <li><a href="#tab1">Source Code</a></li>
+    <li><a href="#tab2">JSFiddle URL</a></li>
+    </ul>
 
-    <%= f.text_area :code, :cols=>120 %>
+<div class="tab_container">
+    <div id="tab1" class="tab_content">
+        <%= f.text_area :code, :cols=>120 %>  
+           
     <div id="button-beautify">
     <label> Beautify Code </label><input type="checkbox" id="b"/> 
+    </div>  
     </div>
+    <div id="tab2" class="tab_content" container="http://jsfiddle.net/shorturl/">
+    <%=f.text_field :code%>
+    </div>
+</div>
+
+
   </p>
   
   <p>
@@ -57,6 +68,25 @@
                 $("#snippet_code").val(source);
             }
         });
+        
+        
+        	//When page loads...
+	$(".tab_content").hide(); //Hide all content
+	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	$(".tab_content:first").show(); //Show first tab content
+
+	//On Click Event
+	$("ul.tabs li").click(function() {
+
+		$("ul.tabs li").removeClass("active"); //Remove any "active" class
+		$(this).addClass("active"); //Add "active" class to selected tab
+		$(".tab_content").hide(); //Hide all tab content
+
+		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+		$(activeTab).fadeIn(); //Fade in the active ID content
+		return false;
+	});
+
        
     });
 
