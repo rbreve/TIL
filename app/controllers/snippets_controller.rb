@@ -38,9 +38,6 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find(params[:id])
     @snippet.views+=1
     @snippet.save()
-    if @snippet.code =~ /^((http|https):\/\/)?jsfiddle.net\/\w+/
-      @jsfiddle=true
-    end
     @snippet.revert_to(params[:version].to_i) if params[:version]
     @report=Report.new
     session[:next]=snippet_path(@snippet)
@@ -76,7 +73,9 @@ class SnippetsController < ApplicationController
   end
   
   def edit
+    @action="edit"
     @snippet = Snippet.find(params[:id])
+    @tags=@snippet.tags.join(",")
   end
   
   def update

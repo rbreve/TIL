@@ -6,26 +6,31 @@
 
     <%= f.text_field :name %>
   </p>
-   
+  
+<%if @action == "edit"%>
+    <%if  @snippet.is_fiddle()%>
+            <input type="text" name="url" placeholder="http://jsfiddle.net/aBcD/" id="code-url" >
+    <%else%>
+            <%= f.text_area :code, :cols=>110 %>
+
+    <%end%>
+<%else%>
+ 
   <ul class="tabs">
     <li><a href="#tab1">Source Code</a></li>
     <li><a href="#tab2">JSFiddle URL</a></li>
     </ul>
+    <div class="tab_container">
+        <div id="tab1" class="tab_content">
+            <%= f.text_area :code, :cols=>110 %>
+        </div>
+        <div id="tab2" class="tab_content">
+        <input type="text" name="url" placeholder="http://jsfiddle.net/aBcD/" id="code-url" >
+        </div>
+    </div>
+<%end%>
 
-<div class="tab_container">
-    <div id="tab1" class="tab_content">
-        <%= f.text_area :code, :cols=>120 %>  
-           
    
-    </div>
-    <div id="tab2" class="tab_content">
-    <input type="text" name="url" placeholder="http://jsfiddle.net/aBcD/" id="code-url" >
-    </div>
-</div>
-
-
-  </p>
-  
   <p>
     <%= f.label :description %>
     <span class="small">What does your code do?</span> <br/>
@@ -36,22 +41,28 @@
  
       <%= f.label "Tags" %> 
          <span class="small">ie. button, round, gradient, svg</span> <br/>
-       <input type="text" id="tag"> <%= link_to "Add Tag", new_tag_path(), :remote => true %>
-       <%= f.hidden_field :tags, :id=>"tags"%>
-       <ul id="tags-new" class="tags"></ul>
+       <input type="text" id="tag"> <%= link_to "✚ Add Tag", new_tag_path(), :remote => true, :class=>"cupid-blue", :id=>"add-tag" %>
+    
+    <%# f.hidden_field :tags, :id=>"tags"%>
+    <input type="hidden" name="snippet[tags]" id="tags" value="<%=@tags%>"> 
+       <ul id="tags-new" class="tags">
+        <%for tag in @snippet.tags%>
+            <li class='rounded10 tag'><%=tag.name%><button class="tag-delete">x</button></li>
+        <%end%>
+       </ul>
         
-    <button class="cupid-blue center big-button">Post Snippet</button> 
+        
+    <button class="cupid-blue center big-button"><% if @action=="edit" %>Update<%else%>Post<%end%> Snippet</button> 
  <% end %>
 
  
 
 <script>
     var source;
-    var tags = [];
+    var tags = $("#tags").val().split(",");
     $(function() {  
         
-        $("tag").autoSuggest("/tags/index.js");
-
+    
         $(".tag-delete").live('click',function(){
             tags.splice(tags.indexOf($(this).val()), 1);
             $(this).parent().remove();
@@ -68,23 +79,7 @@
         });
         
         
-        	//When page loads...
-	$(".tab_content").hide(); //Hide all content
-	$("ul.tabs li:first").addClass("active").show(); //Activate first tab
-	$(".tab_content:first").show(); //Show first tab content
-
-	//On Click Event
-	$("ul.tabs li").click(function() {
-
-		$("ul.tabs li").removeClass("active"); //Remove any "active" class
-		$(this).addClass("active"); //Add "active" class to selected tab
-		$(".tab_content").hide(); //Hide all tab content
-
-		var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-		$(activeTab).fadeIn(); //Fade in the active ID content
-		return false;
-	});
-
+   
        
     });
 

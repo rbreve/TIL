@@ -1,5 +1,8 @@
 var t=$("#tag").val();
-$("#tag").val("");
-$("#tags-new").append("<li class='rounded10'>"+t+"<button class=\"tag-delete\">x</button></li>");
-tags.push(t);
-$("#tags").val(tags.join(","));
+if (t!=""){
+    $("#tag").val("");
+    $("#tags-new").append("<li class='rounded10 tag'>"+t+"<button class=\"tag-delete\">x</button></li>");
+    
+    tags.push(t);
+    $("#tags").val(tags.join(","));
+}

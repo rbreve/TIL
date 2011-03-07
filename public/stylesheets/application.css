@@ -279,8 +279,9 @@ label {
 	margin-left: 58px;
 }
 
-.tags ul {
-	
+.tags ul li{
+		background-color: #9ad999;
+
 }
 
 .tag-title {
@@ -533,6 +534,7 @@ label {
 	color: #575757;
 	padding: 5px;
 	width: 850px;
+	font-size: 11px;
 }
 
 #snippet_name {
@@ -550,6 +552,19 @@ label {
 	margin-top: 10px;
 	display: block;
 	min-height: 20px;
+
+}
+
+#add-tag{
+	font-size: 10px;
+	padding: 6px 10px 6px 10px;	
+}
+
+.tag-green{
+	background-color: #9ad999 !important;
+	min-width: 200px;
+	padding: 5px;
+	color: white;
 }
 
 .tag-delete {

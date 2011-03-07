@@ -31,35 +31,28 @@
     <%= simple_format(@snippet.description) %>
 </div>
 
-<% unless @snippet.tags.empty? %>
+<%= render :partial => "tags/tag", :locals => {:tags=>@snippet.tags}%>
 
-    <div class="tags-wrapper">
-       
-        <% for tag in @snippet.tags %>
-             
-            <%= link_to tag.name, snippets_path(:tag=>tag.name), :class=>"tag rounded10" %>
-            
-        <%end%>
-       
+
+<%if @snippet.is_fiddle()%>
+    <div class="embed-wrapper">
+        <iframe style="width: 100%; height: 300px; margin-top:20px;" src="<%=@snippet.code%>/embedded"></iframe>
     </div>
-     
-<%end%>
-
-<%if @jsfiddle%>
-<div class="embed-wrapper">
-<iframe style="width: 100%; height: 300px; margin-top:20px;" src="<%=@snippet.code%>/embedded"></iframe>
-</div>
 <%else%>
-<pre id="sourcecode" class="brush: css; html-script: true; gutter: false; " > <%= @snippet.code %></pre>
+    <pre id="sourcecode" class="brush: css; html-script: true; gutter: false; " > <%= @snippet.code %></pre>
 <%end%>
 
 
-<%unless @jsfiddle%>
+<%unless @snippet.is_fiddle()%>
     <%= link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
 <%end%>
 <div id="actions">
 
 <% if current_user%>
+
+  <%= link_to "Edit", edit_snippet_path(@snippet) %>  
+  
+      <%= link_to "Delete", @snippet, :confirm => 'Are you sure?', :method => :delete %>
     <% unless saved(@snippet.id)%>
         <%= link_to "Save", saves_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post, :id=>'save' %> 
     <%else%>
@@ -84,11 +77,8 @@
 
   <%if current_user == @snippet.user%>
 
-<p>
-  <%= link_to "Edit", edit_snippet_path(@snippet) %> |
-  
-      <%= link_to "Delete", @snippet, :confirm => 'Are you sure?', :method => :delete %>
-  </p>
+ 
+ 
 
   <%end%>
   <p>

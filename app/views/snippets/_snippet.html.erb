@@ -9,12 +9,8 @@
         <%= truncate(snippet.description,:length => 150) %>
     </div>
 
-    <% unless snippet.tags.empty? %>
-    <div class="tags-wrapper">
-        <% for tag in snippet.tags %>
-            <%= link_to tag.name, snippets_path(:tag=>tag.name), :class=>"tag rounded10" %>
-        <%end%>
-    </div>
-    <%end%>
+
+    <%= render :partial => "tags/tag", :locals => {:tags=>snippet.tags}%>
+
 
 </div>

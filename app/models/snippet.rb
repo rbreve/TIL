@@ -11,6 +11,12 @@ class Snippet < ActiveRecord::Base
   
   validates_presence_of :name, :code
   
+  def is_fiddle()
+    if self.code =~ /^((http|https):\/\/)?jsfiddle.net\/\w+/
+      return true
+    end
+    return false
+  end
   
   def vote(user_id)
       vote=Vote.new(:user_id=>user_id, :snippet_id=>self.id)
