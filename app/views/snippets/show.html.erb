@@ -44,11 +44,13 @@
 
 
 <%unless @snippet.is_fiddle()%>
-    <%= link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
+    <%if  @snippet.votes_count > 5%>
+        <%= link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
+    <%end%>
 <%end%>
 <div id="actions">
 
-<% if current_user%>
+<% if current_user and @snippet.user == current_user%>
 
   <%= link_to "Edit", edit_snippet_path(@snippet) %>  
   
