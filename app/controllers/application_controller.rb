@@ -16,4 +16,13 @@ class ApplicationController < ActionController::Base
       return
     end
   end
+  
+  def authenticate_author
+    if current_user == Snippet.find(params[:id]).user
+      true
+    else
+      redirect_to root_url
+      return
+    end
+  end
 end

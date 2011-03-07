@@ -1,5 +1,6 @@
 class SnippetsController < ApplicationController
   before_filter :authenticate_user, :except => ["index", "show", "run", "new"]
+  before_filter :authenticate_author, :only => ["edit", "update"]
   
   def index
     @sort=params[:sort_by]
