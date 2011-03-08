@@ -44,6 +44,7 @@ class SnippetsController < ApplicationController
     session[:next]=snippet_path(@snippet)
     respond_to do |format|
       format.json { render :json => @snippet }
+      format.html
     end
   end
   
