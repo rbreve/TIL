@@ -46,7 +46,7 @@
 <%unless @snippet.is_fiddle()%>
     
         <%# link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
-        <a href="http://ec2-50-17-37-147.compute-1.amazonaws.com/run.htm?snippet_id=<%=@snippet.id%>" id="rundemo" class="rounded5" target="_blank">Run Demo</a>
+        <a href="http://blipea.me/run.php?id=<%=@snippet.id%>" id="rundemo" class="rounded5" target="_blank">Run Demo</a>
  <%end%>
 <div id="actions">
 

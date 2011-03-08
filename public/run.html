@@ -20,8 +20,8 @@ function getParameterByName( name )
                 id=getParameterByName("snippet_id");
                 
                 $.ajax({
-                        url: "http://html5snippets.heroku.com/snippets/"+id+".json",
-                        dataType: "json",
+                        url: "http://html5snippets.heroku.com/snippets/"+id+".json?callback=snippet",
+                        dataType: "jsonp",
                         crossDomain:true,
                         success: function(data) { code = data.snippet.code; $("#html5snippetResult").html(code);}
                        
