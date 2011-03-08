@@ -44,10 +44,10 @@
 
 
 <%unless @snippet.is_fiddle()%>
-    <%if  @snippet.votes_count > 5%>
-        <%= link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
-    <%end%>
-<%end%>
+    
+        <%# link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
+        <a href="http://ec2-50-17-37-147.compute-1.amazonaws.com/run.htm?snippet_id=<%=@snippet.id%>">
+ <%end%>
 <div id="actions">
 
 <% if current_user and @snippet.user == current_user%>

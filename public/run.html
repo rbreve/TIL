@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
+<script>
+function getParameterByName( name )
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+        $(function(){
+            
+                id=getParameterByName("snippet_id");
+                
+                $.ajax({
+                        url: "http://127.0.0.1:3000/snippets/"+id+".json",
+                        crossDomain:true,
+                        success: function(data) { code = data.snippet.code; $("#html5snippetResult").html(code);}
+                       
+                });
+
+        });
+
+</script>
+</head>
+<body>
+        <div id="html5snippetResult"></div>
+
+</body>
+
+
+
+</html>
+
