@@ -269,6 +269,7 @@ label {
 #sourcecode {
 	display: inline-block;
 	width: 870px;
+	font-size: 13px;
 }
 
 .tags-wrapper {

@@ -42,6 +42,9 @@ class SnippetsController < ApplicationController
     @snippet.revert_to(params[:version].to_i) if params[:version]
     @report=Report.new
     session[:next]=snippet_path(@snippet)
+    respond_to do |format|
+      format.json { render :json => @snippet }
+    end
   end
   
   def run
