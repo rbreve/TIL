@@ -43,7 +43,7 @@ class SnippetsController < ApplicationController
     @report=Report.new
     session[:next]=snippet_path(@snippet)
     respond_to do |format|
-      format.json { render :json => @snippet }
+      format.json { render :json => @snippet, :callback => params[:callback] }
       format.html
     end
   end
