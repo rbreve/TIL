@@ -374,14 +374,14 @@ label {
 }
 
 #rundemo {
-	padding: 6px 8px 6px 22px;
-	width: 120px;
-	background: white url(/images/play.png) no-repeat 9px 7px;
+	padding: 6px 40px 6px 15px;
+	width: 150px;
+	background: white url(/images/newwindow.png) no-repeat 105px 4px;
 }
 
 #rundemo:hover {
 	text-decoration: none;
-	background: #bce2fb url(/images/play.png) no-repeat 9px 7px;
+	background: #bce2fb url(/images/newwindow.png) no-repeat 105px 4px;
 }
 
 #login-popup {

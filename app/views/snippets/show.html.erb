@@ -39,14 +39,14 @@
         <iframe style="width: 100%; height: 300px; margin-top:20px;" src="<%=@snippet.code%>/embedded"></iframe>
     </div>
 <%else%>
-    <pre id="sourcecode" class="brush: css; html-script: true; gutter: false; " > <%= @snippet.code %></pre>
+    <pre id="sourcecode" class="brush: css; html-script: true;  " > <%= @snippet.code %></pre>
 <%end%>
 
 
 <%unless @snippet.is_fiddle()%>
     
         <%# link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
-        <a href="http://blipea.me/run.php?id=<%=@snippet.id%>" id="rundemo" class="rounded5" target="_blank">Run Demo</a>
+        <a href="http://blipea.me/run.php?id=<%=@snippet.id%>" id="rundemo" class="rounded5" target="_blank">Try Snippet</a>
  <%end%>
 <div id="actions">
 
