@@ -203,7 +203,7 @@ label {
 }
 
 #wrapper {
-	padding: 45px;
+	padding: 25px 25px 25px 25px;
 	overflow: auto;
 }
 
@@ -273,11 +273,10 @@ label {
 }
 
 .tags-wrapper {
-	width: 800px;
-	min-height: 30px;
+ 	min-height: 30px;
 	margin-bottom: 10px;
 	margin-top: 10px;
-	margin-left: 58px;
+	margin-left: 68px;
 }
 
 .tags ul li{
@@ -298,6 +297,7 @@ label {
 	margin-right: 10px;
 	font-size: 15px;
 	color: white;
+	margin-bottom: 5px;
 }
 
 .tag:hover {
@@ -450,10 +450,18 @@ label {
 	overflow: auto;
 	min-height: 400px;
 	margin-top: 20px;
+	float: left;
+	width: 750px;
+}
+
+#right-column{
+	float: right;
+	padding: 35px 10px 10px 10px;
+	text-align: center;
 }
 
 .snippet-title {
-	width: 790px;
+	width: 91%;
 	float: right;
 }
 
@@ -463,8 +471,8 @@ label {
 }
 
 .description {
+	width: 667px;
 	float: right;
-	width: 790px;
 	margin-bottom: 10px;
 }
 

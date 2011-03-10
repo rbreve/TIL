@@ -4,8 +4,18 @@ class SnippetsController < ApplicationController
   
   def index
     @sort=params[:sort_by]
-    #@sort ||= "popular"
+    @tags = Snippet.tag_counts_on(:tags)
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc")
+    
+    if params[:search]
+      @tagged = Snippet.tagged(params[:search])
+      for snippet in @tagged
+        unless @snippets.index(snippet)
+          @snippets << snippet
+        end
+      end
+    end
+    
     if params[:tag]
       @snippets = Snippet.order("votes_count desc").tagged_with(params[:tag]).paginate(:per_page => 10, :page => params[:page])
       

@@ -11,6 +11,8 @@ class Snippet < ActiveRecord::Base
   
   validates_presence_of :name, :code
   
+  scope :sirch, lambda {|search| where('name LIKE ?', "%#{search}%") }
+  
   def is_fiddle()
     if self.code =~ /^((http|https):\/\/)?jsfiddle.net\/\w+/
       return true
@@ -28,6 +30,14 @@ class Snippet < ActiveRecord::Base
       order("votes_count DESC")
     elsif by == "recent"
       order("created_at DESC")
+    else
+      scoped
+    end
+  end
+  
+  def self.tagged(search)
+    if search
+      tagged_with(search)
     else
       scoped
     end
