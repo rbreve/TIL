@@ -9,7 +9,7 @@
 <%= javascript_include_tag "shBrushCss" %>
 <%= javascript_include_tag "shBrushXml" %>
  
-<%=content_for(:title, @snippet.name + " " + @snippet.tag_list.join(" "))%>
+<%=content_for(:title, "HTML5 snippet : " + @snippet.name + " " + @snippet.tag_list.join(" "))%>
 
 <div class="points-box rounded5">
 <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
@@ -45,8 +45,9 @@
 
 <%unless @snippet.is_fiddle()%>
     
-        <%# link_to "Run Snippet", run_path(), :target => "_blank", :class=>"rounded5", :id=>"rundemo"%>
-        <a href="http://blipea.me/run.php?id=<%=@snippet.id%>" id="rundemo" class="rounded5" target="_blank">Try Snippet</a>
+          
+        <iframe style="width: 100%;  margin-top:20px;" frameborder="0" border="0"  src="http://blipea.me/run.php?id=<%=@snippet.id%>"></iframe>
+        
  <%end%>
 <div id="actions">
 
