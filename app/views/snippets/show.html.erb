@@ -9,7 +9,7 @@
 <%= javascript_include_tag "shBrushCss" %>
 <%= javascript_include_tag "shBrushXml" %>
  
-<%=content_for(:title, "HTML5 snippet : " + @snippet.name + " " + @snippet.tag_list.join(" "))%>
+<%=content_for(:title, "HTML5 snippet :   " + @snippet.name + " " + @snippet.tag_list.join(" "))%>
 
 <div class="points-box rounded5">
 <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
@@ -42,13 +42,6 @@
     <pre id="sourcecode" class="brush: css; html-script: true;  " > <%= @snippet.code %></pre>
 <%end%>
 
-
-<%unless @snippet.is_fiddle()%>
-    
-          
-        <iframe style="width: 100%;  margin-top:20px;" frameborder="0" border="0"  src="http://blipea.me/run.php?id=<%=@snippet.id%>"></iframe>
-        
- <%end%>
 <div id="actions">
 
 <% if current_user and @snippet.user == current_user%>
@@ -65,6 +58,14 @@
     <%= link_to "Report", "#", :id=>'report' %>
 </div>
 <br/>
+<%unless @snippet.is_fiddle()%>
+    
+       <a href="http://blipea.me/run.php?id=<%=@snippet.id%>" id="rundemo" class="rounded5" target="_blank">Try snippet in new window</a>
+       
+        <iframe style="width: 100%; height: 400px; margin-top:20px;" frameborder="0" border="0"  src="http://blipea.me/run.php?id=<%=@snippet.id%>"></iframe>
+        
+ <%end%>
+
  <div id="report-form" class="rounded5 darkborder gray-shadow">
         <%= form_for(@report, :remote => true) do |f| %>
             <%= f.hidden_field :snippet_id, :value=>@snippet.id %>

@@ -376,12 +376,12 @@ label {
 #rundemo {
 	padding: 6px 40px 6px 15px;
 	width: 150px;
-	background: white url(/images/newwindow.png) no-repeat 105px 4px;
+	background: white url(/images/newwindow.png) no-repeat 220px 4px;
 }
 
 #rundemo:hover {
 	text-decoration: none;
-	background: #bce2fb url(/images/newwindow.png) no-repeat 105px 4px;
+	background: #bce2fb url(/images/newwindow.png) no-repeat 220px 4px;
 }
 
 #login-popup {
