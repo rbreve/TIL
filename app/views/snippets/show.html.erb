@@ -11,13 +11,20 @@
  
 <%=content_for(:title, "HTML5 snippet :   " + @snippet.name + " " + @snippet.tag_list.join(" "))%>
 
+<div class="left-box">
 <div class="points-box rounded5">
 <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
 <div id="points"><h1><%= @snippet.votes_count %></h1></div>
 </div>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="#html5">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+</div>
+
+
 
 <div class="snippet-title-show">
     <h1> <%= @snippet.name %></h1>
+
 </div>
 
 
@@ -29,6 +36,7 @@
 
 <div class="description-show grayfont">
     <%= simple_format(@snippet.description) %>
+    
 </div>
 
 <%= render :partial => "tags/tag", :locals => {:tags=>@snippet.tags}%>

@@ -483,13 +483,17 @@ label {
 	margin-right: 10px;
 }
 
+.left-box{
+	float:left;
+}
+
 .points-box {
-	float: left;
 	min-width: 50px;
 	text-align: center;
 	margin-right: 10px;
 	background-color: #FFF;
 	padding-top: 5px;
+	margin-bottom:5px;
 }
 
 .points-box-list {
