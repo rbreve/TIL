@@ -783,6 +783,7 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
 }
 
 .snippet-tabs {
+	margin-top:20px;
  }
 
 #srun{
