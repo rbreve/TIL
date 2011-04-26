@@ -23,7 +23,6 @@
 
 <div class="snippet-title-show">
     <h1> <%= @snippet.name %></h1>
-
 </div>
 
 
@@ -40,6 +39,20 @@
 
 <%= render :partial => "tags/tag", :locals => {:tags=>@snippet.tags}%>
 
+<ul class="snippet-tabs">
+<% unless @snippet.is_fiddle() %>
+ <li id="srun">
+  <a href="#" class="rounded-top5" > Run Snippet </a>
+ </li>
+<% end %>
+
+  <li class="rounded-top5" id="ssource">
+    <a href="#">Source Code</a>
+  </li>
+   
+</ul>
+
+<div id="snippet-content">
 
 <%if @snippet.is_fiddle()%>
     <div class="embed-wrapper">
@@ -64,14 +77,10 @@
 <%end%>
     <%= link_to "Report", "#", :id=>'report' %>
 </div>
-<br/>
-<%unless @snippet.is_fiddle()%>
-    
-       <a href="http://blipea.me/run.php?id=<%=@snippet.id%>" id="rundemo" class="rounded5" target="_blank">Try snippet in new window</a>
-       
-        <iframe style="width: 100%; height: 400px; margin-top:20px;" frameborder="0" border="0"  src="http://blipea.me/run.php?id=<%=@snippet.id%>"></iframe>
-        
- <%end%>
+ 
+ 
+
+</div>
 
  <div id="report-form" class="rounded5 darkborder gray-shadow">
         <%= form_for(@report, :remote => true) do |f| %>
@@ -87,8 +96,6 @@
     </div>
 
   <%if current_user == @snippet.user%>
-
- 
  
 
   <%end%>
@@ -159,6 +166,22 @@
         $("#report").click(function(){
             event.preventDefault();
             $("#report-form").fadeIn(); 
+        });
+    
+        $("#ssource  a").live('click', function(){
+          $("#snippet-content").html(source_code);
+          
+          $("#ssource").css("background-color", "#FFF");
+          $("#srun").css("background-color", "#EEE");
+          
+        });
+      
+        $("#srun a").live('click', function(){
+           $("#ssource").css("background-color", "#EEE");
+           $("#srun").css("background-color", "#FFF");
+           
+          source_code=$("#snippet-content").html();
+          $("#snippet-content").html("<iframe style=\"width: 100%; height: 700px; margin-top:20px;\" frameborder=\"0\" border=\"0\"  src=\"http://blipea.me/run.php?id=<%=@snippet.id%>\"></iframe>");
         });
     
     });

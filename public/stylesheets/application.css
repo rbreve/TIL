@@ -769,3 +769,48 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
 	padding: 20px;
 	font-size: 1.2em;
 }
+
+#snippet-content{
+	width:100%;
+	overflow:auto;
+	background-color:#FFF;
+}
+
+#srun{
+ 	background:  #EEE url(/images/play.png) no-repeat 8px 14px;
+	
+	
+}
+
+.snippet-tabs {
+ }
+
+#srun{
+	padding-left:20px;
+}
+
+.snippet-tabs li{
+	float:left;
+	
+	margin-right:10px;
+	background-color:#FFF;
+	padding: 15px;
+	
+	moz-border-radius-topleft: 5px;
+	moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	
+	font-size:12px;
+}
+
+.gray-tab{
+	background-color:#FFF;
+}
+
+.white-tab{
+		background:  #EEE;
+}
+
