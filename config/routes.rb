@@ -19,6 +19,8 @@ Html5snippets::Application.routes.draw do
   match '/apis/liveedit/:keyword' => 'apis#liveedit', :as => :liveedit, :via => [:post]
   match '/login' => 'sessions#index', :as => :login
   match '/auth/failure' => "sessions#failure"
+  
+  match '/snippet/:id/*slugs' => "snippets#show", :as => :slug
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,3 +1,7 @@
+<%if params[:tag]%>
+  <%=content_for(:title, "HTML5 snippets tag - " + params[:tag])%>
+<%end%>
+
   <% if params[:tag]%>
   <div class="list-title">
     Snippets tagged with <span class="rounded10 tag-title"><%= params[:tag] %></span>
