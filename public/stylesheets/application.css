@@ -274,9 +274,10 @@ label {
 
 .tags-wrapper {
  	min-height: 30px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	margin-top: 10px;
 	margin-left: 68px;
+	 
 }
 
 .tags ul li{
@@ -783,7 +784,7 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
 }
 
 .snippet-tabs {
-	margin-top:20px;
+	margin-top:120px;
  }
 
 #srun{
