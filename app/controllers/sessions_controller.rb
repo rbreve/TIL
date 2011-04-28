@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def create
-
     auth = request.env["omniauth.auth"]  
     #print auth.to_yaml
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
@@ -18,6 +17,7 @@ class SessionsController < ApplicationController
   end
   
   def index
+    #nada
   end
   
   def destroy
