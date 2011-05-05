@@ -34,7 +34,18 @@
 
 <div class="description-show grayfont">
     <%= simple_format(auto_link(@snippet.description)) %>
-    
+    <div class="user-info">
+    <table>
+    <tr>
+    <td>
+    <%=image_tag @snippet.user.avatar, :class=>"avatar"%> 
+    </td>
+    <td>
+    Posted By:
+    <%=@snippet.user.name%> <% if @snippet.user.provider=="twitter" %> <a href="http://www.twitter.com/rbreve"> <br/></a><%= link_to "@" + @snippet.user.username, "http://twitter.com/" + @snippet.user.username, :target=>"_blank"%> <% end %>
+    </td>
+    </table>
+    </div>
 </div>
 
 <%= render :partial => "tags/tag", :locals => {:tags=>@snippet.tags}%>

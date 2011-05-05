@@ -9,6 +9,9 @@ class SessionsController < ApplicationController
     # user['username']=request.env['omniauth.auth']['user_info']['nickname']
     # user.save()
     
+    user.avatar=auth['user_info']['image']
+    user.save()
+    
     if session[:next]
       redirect_to session[:next], :notice => "Signed In"
     else

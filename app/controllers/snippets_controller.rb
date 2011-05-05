@@ -3,6 +3,7 @@ class SnippetsController < ApplicationController
   before_filter :authenticate_author, :only => ["edit", "update"]
   
   def index
+  
     @sort=params[:sort_by]
     @tags = Snippet.tag_counts_on(:tags)
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc")
@@ -35,8 +36,7 @@ class SnippetsController < ApplicationController
          tb=(Time.now - b.created_at)/(1000*60) 
          pb=b.votes_count
          gb=(pb - 1) / (tb + 2)**1.5
-          print "x"
-         gb <=> ga
+          gb <=> ga
       end
     end
     @snippets=@snippets.paginate(:per_page => 10, :page => params[:page])
