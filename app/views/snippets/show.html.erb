@@ -34,11 +34,14 @@
 
 <div class="description-show grayfont">
     <%= simple_format(auto_link(@snippet.description)) %>
+    
     <div class="user-info">
     <table>
     <tr>
     <td>
-    <%=image_tag @snippet.user.avatar, :class=>"avatar"%> 
+    <% if @snippet.user.avatar %>
+      <%=image_tag @snippet.user.avatar, :class=>"avatar"%> 
+    <%end%>
     </td>
     <td>
     Posted By:
