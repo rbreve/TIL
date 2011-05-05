@@ -51,7 +51,9 @@
     </div>
 </div>
 
+<div class="tags-wrapper-show">
 <%= render :partial => "tags/tag", :locals => {:tags=>@snippet.tags}%>
+</div>
 
 <ul class="snippet-tabs">
 <% unless @snippet.is_fiddle() %>

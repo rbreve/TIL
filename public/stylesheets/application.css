@@ -276,9 +276,18 @@ label {
  	min-height: 30px;
 	margin-bottom: 20px;
 	margin-top: 10px;
-	margin-left: 68px;
+	margin-left: 68px; 
+}
+
+.tags-wrapper-show {
+ 	min-height: 30px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+	margin-left: 98px;
 	 
 }
+
+ 
 
 .tags ul li{
 		background-color: #9ad999;
@@ -797,7 +806,8 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
 }
 
 .snippet-tabs {
-	margin-top:120px;
+	margin-top:160px;
+ 
  }
 
 #srun{

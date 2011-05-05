@@ -9,8 +9,8 @@
         <%= truncate(snippet.description,:length => 150) %>
     </div>
 
-
+    <div class="tags-wrapper">
     <%= render :partial => "tags/tag", :locals => {:tags=>snippet.tags}%>
-
+    </div>
 
 </div>
