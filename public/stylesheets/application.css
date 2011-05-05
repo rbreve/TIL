@@ -839,3 +839,16 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
 		background:  #EEE;
 }
 
+
+#footer{
+    width:100%;    
+    text-align:center;
+    color:white;
+    font-size:12px;
+}
+
+#footer a{
+    color:#e4fbfa ;
+    font-size:11px;
+}
+
