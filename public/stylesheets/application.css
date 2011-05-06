@@ -284,7 +284,10 @@ label {
 	margin-bottom: 20px;
 	margin-top: 10px;
 	margin-left: 98px;
-	 
+}
+
+.tags-wrapper-show a{
+    font-size:12px;
 }
 
  
@@ -305,7 +308,6 @@ label {
 	padding: 2px 5px;
 	background-color: #9ad999;
 	margin-right: 10px;
-	font-size: 15px;
 	color: white;
 	margin-bottom: 5px;
 }

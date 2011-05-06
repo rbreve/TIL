@@ -4,10 +4,10 @@ class SavesController < ApplicationController
 
     #@user=User.find_by_username(params[:username])
     @user=User.find(params[:username])
-    @saves = Save.where(:user_id=>@user.id).all
+    @snippets = @user.snippets.all
     ids=[]
-    @saves.each {|s| ids << s.snippet_id}
-    @snippets = Snippet.where("id in (?)", ids)
+    #@saves.each {|s| ids << s.snippet_id}
+    #@snippets = Snippet.where("id in (?)", ids)
   end
   
    

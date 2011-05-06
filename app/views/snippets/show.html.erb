@@ -11,6 +11,8 @@
  
 <%=content_for(:title, "HTML5 snippet :   " + @snippet.name)%>
 
+<%=content_for(:head, raw("<META name=\"keywords\" content=\"" + @snippet.tags.join(",")  + "\">"))%>
+
 <div class="left-box">
 <div class="points-box rounded5">
 <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
