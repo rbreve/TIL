@@ -530,6 +530,11 @@ label {
 	margin-bottom:5px;
 }
 
+.views{
+    font-size:10px;
+    color:gray;
+}
+
 .points-box-list {
 	float: left;
 	min-width: 50px;
