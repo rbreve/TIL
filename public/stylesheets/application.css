@@ -272,6 +272,10 @@ label {
 	font-size: 13px;
 }
 
+#source-wrapper{
+    display:none;
+}
+
 .tags-wrapper {
  	min-height: 30px;
 	margin-bottom: 20px;
@@ -422,6 +426,7 @@ label {
 
 #actions {
 	float: right;
+	margin-top:20px;
 }
 
 #actions a {
@@ -506,6 +511,10 @@ label {
     color:black;
 }
 
+#show-header{
+    width:100%;
+    overflow:auto;
+}
 
 
 .left-box{
@@ -691,6 +700,7 @@ button:hover {
 }
 
 /* cupid blue (inspired by okcupid.com)
+/* Copyright (c) 2011 Chad Mazzola https://github.com/ubuwaits/css3-buttons/blob/gh-pages/LICENSE*/
 *******************************************************************************/
 
 .cupid-blue {
@@ -802,13 +812,16 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
 }
 
 #srun{
- 	background:  #EEE url(/images/play.png) no-repeat 8px 14px;
-	
+ 	background:  #FFF url(/images/play.png) no-repeat 8px 14px;
 	
 }
 
+#ssource{
+    background-color:#EEE;
+}
+
 .snippet-tabs {
-	margin-top:160px;
+	margin-top:30px;
  
  }
 
