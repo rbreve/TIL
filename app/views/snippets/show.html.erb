@@ -151,7 +151,8 @@
                    //alert(data.api["text"]);
                    //c=$(".ref-box").clone().appendTo(k);
                    $(".ref-box .keyword").html(data.api["tag"]);
-                   $(".ref-box .text").html(autolink(data.api["text"]));
+                   if(data.api["text"])
+                     $(".ref-box .text").html(autolink(data.api["text"]));
                    $(".ref-box").fadeIn();
             });
          });
