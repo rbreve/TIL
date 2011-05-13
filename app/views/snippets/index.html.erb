@@ -45,7 +45,7 @@ href="/snippets.rss" />
   
   <div id="right-column">
   <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-    <%= link_to tag.name,  snippets_path(:tag=>tag.name),:class => "tag rounded10" %> <br/>
+    <%= link_to tag.name,  snippets_path(:tag=>tag.name),:class => "tag rounded10 " + css_class %> <br/>
   <% end %>
   </div>
    

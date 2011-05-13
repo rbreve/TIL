@@ -5,7 +5,7 @@ class SnippetsController < ApplicationController
   def index
   
     @sort=params[:sort_by]
-    @tags = Snippet.tag_counts_on(:tags)
+    @tags = Snippet.tag_counts_on(:tags).limit(25)
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc")
     
     if params[:search]

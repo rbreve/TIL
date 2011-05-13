@@ -36,8 +36,11 @@
 
 
   <div class="description-show grayfont">
-      <%= simple_format(auto_link(@snippet.description)) %>
-    
+  
+  <%=  auto_link(simple_format(@snippet.description), :html => { :target => '_blank' }) %>
+   
+  
+     
       <div class="user-info">
       <table>
       <tr>
