@@ -2,10 +2,9 @@ skia -25 faux bold
 
 TODO
 
-add tag ajaxeado
-list tageados
-search ajaxeado
-pagination ajaxeada
+REQUEST SNIPPET
+
+COMMENTS
 
 
     <% form_tag new_tag_path, :method => :get, :id => "formtag", :remote => true do %>

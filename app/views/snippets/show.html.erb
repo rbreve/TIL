@@ -38,9 +38,6 @@
   <div class="description-show grayfont">
   
   <%=  auto_link(simple_format(@snippet.description), :html => { :target => '_blank' }) %>
-   
-  
-     
       <div class="user-info">
       <table>
       <tr>
@@ -138,6 +135,12 @@
 <script>
     $(function(){
          SyntaxHighlighter.all();
+          
+         function autolink(text){
+         		var re = /((http|https|ftp):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g;
+         	  return ( text.replace(re, '<a href="$1" target="_blank">$1</a> ') );
+         }
+        
         
          $(".keyword").live('click', function(){
              k=$(this);
@@ -148,7 +151,7 @@
                    //alert(data.api["text"]);
                    //c=$(".ref-box").clone().appendTo(k);
                    $(".ref-box .keyword").html(data.api["tag"]);
-                   $(".ref-box .text").html(data.api["text"]);
+                   $(".ref-box .text").html(autolink(data.api["text"]));
                    $(".ref-box").fadeIn();
             });
          });
@@ -184,12 +187,12 @@
         );
         
         $("#save").live('click', function(){
-             $.post('/apis/liveedit/'+$.tag,{'text':$("#ref-textarea").val(), 'tag':$.tag}, function(data){
-                 $("#ref-form-wrapper").fadeOut();
-                 $("#ref-text").html(data);
-                 $(".ref-box #ref-text").fadeIn();
-        });
-             return false;
+            $.post('/apis/liveedit/'+$.tag,{'text':$("#ref-textarea").val(), 'tag':$.tag}, function(data){
+              $("#ref-form-wrapper").fadeOut();
+              $("#ref-text").html(data);
+              $(".ref-box #ref-text").fadeIn();
+            });
+            return false;
         });
         
         $("#ref-close").click(function(){
@@ -202,12 +205,10 @@
         });
     
         $("#ssource  a").live('click', function(){
-          
-          $("#ssource").css("background-color", "#FFF");
-          $("#srun").css("background-color", "#EEE");
-          
-              $("#source-wrapper").show();
-               $("#run-wrapper").hide();
+        $("#ssource").css("background-color", "#FFF");
+        $("#srun").css("background-color", "#EEE");
+        $("#source-wrapper").show();
+        $("#run-wrapper").hide();
           
         });
       

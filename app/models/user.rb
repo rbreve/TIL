@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   has_many :saves
   validates :username, :uniqueness => true, :presence => true
   
+  def self.karma(points)
+    self.karma += points
+    self.save()
+  end
+  
   def self.create_with_omniauth(auth)
     create! do |user|
         user.provider = auth["provider"]
