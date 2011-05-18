@@ -308,6 +308,7 @@ label {
 }
 
 .tag {
+    font-size:13px;
 	float: left;
 	padding: 2px 5px;
 	background-color: #9ad999;
@@ -551,8 +552,8 @@ label {
 }
 
 .snippet-link:hover {
-	background-color: #e4fbfa;
-	text-decoration: none;
+	/*background-color: #e4fbfa;
+	   text-decoration: none;*/
 }
 
 .snippet:hover {
@@ -708,7 +709,7 @@ button:hover {
 /* Copyright (c) 2011 Chad Mazzola https://github.com/ubuwaits/css3-buttons/blob/gh-pages/LICENSE*/
 
 .cupid-blue {
-	background: #d7e5f5 !important;
+/*  background: #d7e5f5 !important;*/
 	background: -moz-linear-gradient(0% 100% 90deg,#cbe0f5, #d7e5f5);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#d7e5f5), to(#cbe0f5));
 	border-top: 1px solid #abbbcc !important;
