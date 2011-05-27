@@ -1,0 +1,20 @@
+<% title "Html5 Snippets Requests" %>
+<table>
+  <% for request in @requests %>
+	<div class="request rounded10">
+	
+		<div class="request-avatar">
+			<% if request.user.avatar %>
+	        <%=image_tag request.user.avatar, :class=>"avatar"%> 
+	      	<%end%> 
+		</div>
+
+		<div class="request-txt">
+		<strong><%=request.user.username%></strong>: 
+	      	<%= auto_link(simple_format(request.description)) %>  
+	      	<%= link_to "Reply", new_snippet_path(:request_id=>request) %> 
+		</div>
+	
+ 	</div>
+  <% end %>
+</table>

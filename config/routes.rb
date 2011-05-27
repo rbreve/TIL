@@ -1,5 +1,7 @@
 Html5snippets::Application.routes.draw do
   
+  resources :requests
+
   resources :apis
   resources :users
   resources :reports

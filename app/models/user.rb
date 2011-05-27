@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :snippets
   has_many :votes
   has_many :saves
+  has_many :requests
+  
   validates :username, :uniqueness => true, :presence => true
   
   def self.karma(points)

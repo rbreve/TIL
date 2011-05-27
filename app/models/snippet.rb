@@ -5,6 +5,7 @@ class Snippet < ActiveRecord::Base
   has_many :reports
   has_many :votes
   has_many :saves
+  belongs_to :request
   
   acts_as_taggable
   acts_as_taggable_on :tags

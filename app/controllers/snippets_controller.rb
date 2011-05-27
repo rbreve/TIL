@@ -70,11 +70,11 @@ class SnippetsController < ApplicationController
   
   def new
     unless current_user
-      print "WTF"
       session[:next]=new_snippet_path()
       redirect_to "/login"
     end
     @snippet = Snippet.new
+    @snippet.request_id |= params[:request_id] 
   end
   
   def create

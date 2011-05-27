@@ -20,12 +20,12 @@ href="/snippets.rss" />
       link_to("List Popular", sort_path("popular"), :class=>"sort rounded5")
   end %>
 
-  
-  
+
   <%=link_to_if(@sort=="recent",  "List Recent", sort_path("recent"), :class=>"sort selected rounded5") do
       link_to("List Recent", sort_path("recent"), :class=>"sort rounded5")
   end %>
   
+<%=link_to "User Requests", requests_path(), :class=>"sort rounded5"%>
   
    
   <div id="search">

@@ -13,6 +13,15 @@ class VotesController < ApplicationController
     
       if not @snippet.blank? and @vote.blank?
         @snippet.vote(user_id)
+        #subir karma
+        user=@snippet.user
+        if user.karma
+          user.karma+=1
+        else
+          user.karma=1
+        end
+        user.save()
+        
       else
         @voted=true
       end
