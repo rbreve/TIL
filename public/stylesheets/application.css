@@ -565,7 +565,7 @@ label {
 }
 
 .snippet:hover {
-	background-color: #e4fbfa;
+	/*background-color: #e4fbfa;*/
 }
 
 .snippet {
@@ -895,4 +895,32 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
     background-color:white;
     margin-top:10px;
     padding:10px;
+}
+
+.pagination .current{
+	background-color: #337dbd;
+    color:white;
+    margin-left:20px;
+    padding: 5px 10px 5px 10px;
+    
+    -moz-border-radius: 15px;
+	-khtml-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.pagination a{
+    margin-left:5px;
+    	    padding: 5px 10px 5px 10px;
+
+}
+
+.pagination a:hover{
+	background-color: #bce2fb;
+	text-decoration: none;
+    
+    -moz-border-radius: 15px;
+	-khtml-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
 }

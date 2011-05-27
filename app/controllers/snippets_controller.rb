@@ -8,6 +8,8 @@ class SnippetsController < ApplicationController
     @tags = Snippet.tag_counts_on(:tags).limit(25)
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc")
     
+    @request=Request.new()
+    
     if params[:search]
       @tagged = Snippet.tagged(params[:search])
       for snippet in @tagged

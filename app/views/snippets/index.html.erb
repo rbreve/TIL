@@ -37,10 +37,14 @@ href="/snippets.rss" />
     <%end%>
   
   <div id="snippets">
+	<%if @snippets.count > 1%>
      <%= render :partial => 'snippet', :collection => @snippets%>
-     
-        <%= will_paginate @snippets%>
-
+     <%= will_paginate @snippets%>
+	<%else%>
+	<p>Didn't find what you where looking for? request a snippet</p>
+		<%= render 'requests/form' , :locals=>{@request => Request.new} %>
+		
+	<%end%>
   </div>
   
   <div id="right-column">
