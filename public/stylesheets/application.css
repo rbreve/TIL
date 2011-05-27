@@ -473,9 +473,10 @@ label {
 }
 
 #snippets {
-	overflow: auto;
+	overflow: hidden;
 	min-height: 400px;
 	margin-top: 20px;
+	padding-bottom: 20px;
 	float: left;
 	width: 750px;
 }
@@ -897,6 +898,12 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
     padding:10px;
 }
 
+.pagination{
+	
+	margin-top: 30px;
+	margin-left: 20px;
+}
+
 .pagination .current{
 	background-color: #337dbd;
     color:white;
@@ -912,6 +919,7 @@ ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the act
 .pagination a{
     margin-left:5px;
     	    padding: 5px 10px 5px 10px;
+    	    margin-top: 20px;
 
 }
 
