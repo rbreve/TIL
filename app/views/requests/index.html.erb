@@ -1,4 +1,15 @@
-<% title "Html5 Snippets Requests" %>
+
+ <%=link_to_if(@sort=="popular",  "List Popular", sort_path("popular"), :class=>"sort selected rounded5") do
+     link_to("List Popular", sort_path("popular"), :class=>"sort rounded5")
+ end %>
+
+
+ <%=link_to_if(@sort=="recent",  "List Recent", sort_path("recent"), :class=>"sort selected rounded5") do
+     link_to("List Recent", sort_path("recent"), :class=>"sort rounded5")
+ end %>
+<p>
+<h1>Requests from users</h1>
+</p>
 <table>
   <% for request in @requests %>
 	<div class="request rounded10">
@@ -12,7 +23,7 @@
 		<div class="request-txt">
 		<strong><%=request.user.username%></strong>: 
 	      	<%= auto_link(simple_format(request.description)) %>  
-	      	<%= link_to "Reply", new_snippet_path(:request_id=>request) %> 
+	      	<%= link_to "Reply with a snippet", new_snippet_path(:request_id=>request) %> 
 		</div>
 	
  	</div>
