@@ -37,7 +37,7 @@ href="/snippets.rss" />
     <%end%>
   
   <div id="snippets">
-	<%if @snippets.count > 1%>
+	<%unless @snippets.empty?%>
      <%= render :partial => 'snippet', :collection => @snippets%>
      <%= will_paginate @snippets%>
 	<%else%>
