@@ -204,7 +204,7 @@ label {
 
 #wrapper {
 	padding: 25px 25px 25px 25px;
-	overflow: auto;
+	overflow: hidden;
 }
 
 #container {

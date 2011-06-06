@@ -5,9 +5,10 @@ class SnippetsController < ApplicationController
   def index
   
     @sort=params[:sort_by]
+    
     @tags = Snippet.tag_counts_on(:tags).limit(25)
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc")
-    
+    print Snippet.tag_counts
     @request=Request.new()
     
     if params[:search]
@@ -80,7 +81,6 @@ class SnippetsController < ApplicationController
   end
   
   def create
-
     @snippet = Snippet.new(params[:snippet])
     @snippet.user_id = session[:user_id]
     @snippet.tag_list = params[:snippet][:tags]
