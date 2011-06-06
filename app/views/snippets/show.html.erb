@@ -18,7 +18,7 @@
   <%=link_to image_tag("/images/vup.png"), voteup_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post%> 
   <div id="points"><h1><%= @snippet.votes_count %></h1></div>
   </div>
-  <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="html5snippets">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="<% if @snippet.user.provider=="twitter" %><%=@snippet.user.username%><%else%>html5snippets<%end%>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
   
   </div>
 
