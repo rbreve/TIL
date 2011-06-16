@@ -649,6 +649,13 @@ label {
 	
 }
 
+.forma {
+	width: 500px;	
+}
+
+#forma button{
+	float: right;
+}
 
 #new_snippet{
 	
