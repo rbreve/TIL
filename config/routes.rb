@@ -6,7 +6,11 @@ Html5snippets::Application.routes.draw do
   resources :users
   resources :reports
   resources :saves
-  resources :snippets 
+  resources :snippets do 
+    collection do
+      post 'sms'
+    end
+  end
   resources :tags
   resources :votes
   

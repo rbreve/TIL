@@ -1,7 +1,8 @@
 class SnippetsController < ApplicationController
-  before_filter :authenticate_user, :except => ["index", "show", "run", "new"]
+  before_filter :authenticate_user, :except => ["index", "show", "run", "new", "sms"]
   before_filter :authenticate_author, :only => ["edit", "update"]
-  
+  skip_before_filter :verify_authenticity_token
+
   def index
     @snippet = Snippet.new
   
@@ -92,6 +93,15 @@ class SnippetsController < ApplicationController
       redirect_to "/"
     else
       render :action => 'new'
+    end
+  end
+
+  def sms
+    user = User.find_by_phone params["From"]
+    if user
+      lesson = Snippet.new :name => params["Body"]
+      lesson.user_id = user.id
+      lesson.save
     end
   end
   

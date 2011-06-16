@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110525051634) do
+ActiveRecord::Schema.define(:version => 20110616072611) do
 
   create_table "apis", :force => true do |t|
     t.string   "tag"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20110525051634) do
     t.string   "username"
     t.string   "email"
     t.string   "avatar"
+    t.string   "phone"
   end
 
   create_table "versions", :force => true do |t|
