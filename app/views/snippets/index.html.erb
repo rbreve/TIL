@@ -37,9 +37,10 @@ href="/snippets.rss" />
     <%end%>
   
   <div id="snippets">
-	
+	  <%if not current_user%>
+    
 	<%= render 'simpleform' %>
-	
+	<%end%>
 	
 	<%unless @snippets.empty?%>
      <%= render :partial => 'snippet', :collection => @snippets%>
