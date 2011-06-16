@@ -102,6 +102,9 @@ class SnippetsController < ApplicationController
       lesson = Snippet.new :name => params["Body"]
       lesson.user_id = user.id
       lesson.save
+
+      Twilio.connect "AC5e628b141b52477fee2a54dd877afe3c", "78df19170f673075a306813da6c83555"
+      Twilio::Sms.message '4155992671', user.phone, "Done, check your lesson at #{url_for lesson}"
     end
   end
   
