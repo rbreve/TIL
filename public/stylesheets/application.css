@@ -649,12 +649,17 @@ label {
 	
 }
 
-.forma {
-	width: 500px;	
+#forma {
+	width: 700px;	
 }
 
 #forma button{
-	float: right;
+	position: relative;
+	left: 520px;
+	top: -45px;
+}
+
+#forma input{
 }
 
 #new_snippet{

@@ -89,8 +89,7 @@ class SnippetsController < ApplicationController
     @snippet.code=params[:url] if params[:url] != ""
     
     if @snippet.save
-      flash[:notice] = "Successfully created snippet."
-      redirect_to "/"
+      redirect_to "/snippets/sort/recent"
     else
       render :action => 'new'
     end
