@@ -649,6 +649,12 @@ label {
 	
 }
 
+
+#new_snippet{
+	
+	width: 500px;
+}
+
 #snippet_code {
 	font-family: monaco;
 	color: #575757;

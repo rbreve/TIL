@@ -11,6 +11,16 @@ class User < ActiveRecord::Base
     self.save()
   end
   
+  def get_avatar()
+    if self.provider == "facebook"
+      return "http://graph.facebook.com/" + self.username + "/picture"
+    end
+    
+    if self.provider == "twitter"
+      self.avatar
+    end
+  end
+  
   def self.create_with_omniauth(auth)
     create! do |user|
         user.provider = auth["provider"]

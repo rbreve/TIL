@@ -2,9 +2,9 @@
 
 	<div class="blip">
 		<div class="avatar-blip">
-			<% if snippet.user.avatar %>
-	        <%=image_tag snippet.user.avatar, :class=>"avatar"%> 
-	      <%end%>
+			
+ 	        <%=image_tag snippet.user.get_avatar, :class=>"avatar"%> 
+ 
 		</div>
 		
 		<div class="blip-wrapper">
@@ -12,7 +12,7 @@
 				</div>
 
 			    <div class="blip-title rounded10">
-			     <h2> <%= link_to snippet.name, snippet_path(snippet), :class=>"snippet_link" %>  </h2>
+			     <h2> <%= link_to snippet.name, snippet_path(snippet), :class=>"snippet_link" %> </h2>
 			    </div>
 		</div>
  </div>
