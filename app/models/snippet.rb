@@ -10,7 +10,7 @@ class Snippet < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
   
-  validates_presence_of :name, :code
+  validates_presence_of :name
   
   scope :sirch, lambda {|search| where('name LIKE ?', "%#{search}%") }
   

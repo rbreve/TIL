@@ -1,16 +1,19 @@
 <div class="snippet rounded5">
-    <div class="points-box-list rounded5"> <h1> <%= snippet.votes_count %> </h1></div> 
 
-    <div class="snippet-title">
-        <h1> <%= link_to snippet.name, snippet_path(snippet), :class=>"snippet_link" %>  </h1>
-    </div>
-    
-    <div class="description tk-museo-sans grayfont">
-        <%= truncate(snippet.description,:length => 150) %>
-    </div>
+	<div class="blip">
+		<div class="avatar-blip">
+			<% if snippet.user.avatar %>
+	        <%=image_tag snippet.user.avatar, :class=>"avatar"%> 
+	      <%end%>
+		</div>
+		
+		<div class="blip-wrapper">
+				<div class='tri'>
+				</div>
 
-    <div class="tags-wrapper">
-    <%= render :partial => "tags/tag", :locals => {:tags=>snippet.tags}%>
-    </div>
-
+			    <div class="blip-title rounded10">
+			     <h2> <%= link_to snippet.name, snippet_path(snippet), :class=>"snippet_link" %>  </h2>
+			    </div>
+		</div>
+ </div>
 </div>

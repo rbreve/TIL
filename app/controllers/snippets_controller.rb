@@ -3,6 +3,7 @@ class SnippetsController < ApplicationController
   before_filter :authenticate_author, :only => ["edit", "update"]
   
   def index
+    @snippet = Snippet.new
   
     @sort=params[:sort_by]
     
@@ -88,7 +89,7 @@ class SnippetsController < ApplicationController
     
     if @snippet.save
       flash[:notice] = "Successfully created snippet."
-      redirect_to @snippet
+      redirect_to "/"
     else
       render :action => 'new'
     end

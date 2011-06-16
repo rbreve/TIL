@@ -1,45 +1,11 @@
 <%= form_for @snippet do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label "Snippet name" %>
-    <span class="small">Snippet title with short description</span> <br/>
-
-	<%= f.hidden_field :request_id%>
     <%= f.text_field :name %>
   </p>
-  
-<%if @action == "edit"%>
-    <%if  @snippet.is_fiddle()%>
-            <input type="text" name="url" placeholder="http://jsfiddle.net/aBcD/" id="code-url" value="<%=@snippet.code%>" >
-    <%else%>
-            <%= f.text_area :code, :cols=>110 %>
-    <%end%>
-<%else%>
-  <ul class="tabs">
-    <li><a href="#tab1">Source Code</a></li>
-    <li><a href="#tab2">JSFiddle URL</a></li>
-    </ul>
-    <div class="tab_container">
-        <div id="tab1" class="tab_content">
-            <%= f.text_area :code, :cols=>110 %>
-        </div>
-        <div id="tab2" class="tab_content">
-        <input type="text" name="url" placeholder="http://jsfiddle.net/aBcD/" id="code-url" >
-        </div>
-    </div>
-<%end%>
-
-   
-  <p>
-    <%= f.label :description %>
-    <span class="small">What does your code do?</span> <br/>
-     
-    <%= f.text_area :description %>
-     
-  </p>
- 
+    
       <%= f.label "Tags" %> 
-         <span class="small">ie. button, round, gradient, svg</span> <br/>
+         <span class="small">ie. life, work, people, food, music</span> <br/>
        <input type="text" id="tag"> <%= link_to "✚ Add Tag", new_tag_path(), :remote => true, :class=>"cupid-blue", :id=>"add-tag" %>
     
     <%# f.hidden_field :tags, :id=>"tags"%>
@@ -51,7 +17,7 @@
        </ul>
         
         
-    <button class="cupid-blue center big-button"><% if @action=="edit" %>Update<%else%>Post<%end%> Snippet</button> 
+    <button class="cupid-blue center big-button">SEND</button> 
  <% end %>
 
  

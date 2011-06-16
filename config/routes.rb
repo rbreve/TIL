@@ -6,7 +6,7 @@ Html5snippets::Application.routes.draw do
   resources :users
   resources :reports
   resources :saves
-  resources :snippets
+  resources :snippets 
   resources :tags
   resources :votes
   

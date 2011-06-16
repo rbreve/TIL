@@ -13,56 +13,56 @@
 ActiveRecord::Schema.define(:version => 20110525051634) do
 
   create_table "apis", :force => true do |t|
-    t.string    "tag"
-    t.text      "text"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.string   "tag"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reports", :force => true do |t|
-    t.integer   "snippet_id"
-    t.integer   "user_id"
-    t.text      "reason"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "snippet_id"
+    t.integer  "user_id"
+    t.text     "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "requests", :force => true do |t|
-    t.integer   "user_id"
-    t.text      "description"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "email"
+    t.integer  "user_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "saves", :force => true do |t|
-    t.integer   "user_id"
-    t.integer   "snippet_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "user_id"
+    t.integer  "snippet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "snippets", :force => true do |t|
-    t.string    "name"
-    t.integer   "user_id"
-    t.text      "code"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.text      "description"
-    t.integer   "points",      :default => 0
-    t.integer   "views",       :default => 0
-    t.integer   "votes_count", :default => 0
-    t.integer   "request_id"
+    t.string   "name"
+    t.integer  "user_id"
+    t.text     "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "points",      :default => 0
+    t.integer  "views",       :default => 0
+    t.integer  "votes_count", :default => 0
+    t.integer  "request_id"
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer   "tag_id"
-    t.integer   "taggable_id"
-    t.string    "taggable_type"
-    t.integer   "tagger_id"
-    t.string    "tagger_type"
-    t.string    "context"
-    t.timestamp "created_at"
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context"
+    t.datetime "created_at"
   end
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
@@ -73,35 +73,35 @@ ActiveRecord::Schema.define(:version => 20110525051634) do
   end
 
   create_table "user_votes", :force => true do |t|
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string    "provider"
-    t.string    "uid"
-    t.string    "name"
-    t.text      "about"
-    t.integer   "karma"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "username"
-    t.string    "email"
-    t.string    "avatar"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.text     "about"
+    t.integer  "karma"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "username"
+    t.string   "email"
+    t.string   "avatar"
   end
 
   create_table "versions", :force => true do |t|
-    t.integer   "versioned_id"
-    t.string    "versioned_type"
-    t.integer   "user_id"
-    t.string    "user_type"
-    t.string    "user_name"
-    t.text      "modifications"
-    t.integer   "number"
-    t.integer   "reverted_from"
-    t.string    "tag"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "versioned_id"
+    t.string   "versioned_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "user_name"
+    t.text     "modifications"
+    t.integer  "number"
+    t.integer  "reverted_from"
+    t.string   "tag"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "versions", ["created_at"], :name => "index_versions_on_created_at"
@@ -112,12 +112,12 @@ ActiveRecord::Schema.define(:version => 20110525051634) do
   add_index "versions", ["versioned_id", "versioned_type"], :name => "index_versions_on_versioned_id_and_versioned_type"
 
   create_table "votes", :force => true do |t|
-    t.integer   "user_id"
-    t.string    "user_type"
-    t.integer   "snippet_id"
-    t.string    "snippet_type"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.integer  "snippet_id"
+    t.string   "snippet_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

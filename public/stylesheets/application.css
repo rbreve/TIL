@@ -33,9 +33,11 @@ h1,h2,h3,h4,h5,h6 {
 	font-size: 100%;
 	font-weight: 500;
 	text-shadow: white 1px 1px 1px;
-	letter-spacing: -2px;
-	font-family: "museo-sans-1","museo-sans-2";
+	letter-spacing: 0px;
+	font-family: "museo-1","museo-2";
 }
+
+
 
 q:before,q:after {
 	content: '';
@@ -46,8 +48,8 @@ abbr,acronym {
 }
 
 body {
-	background-color: #a3c2c7;
 	font-family: "museo-sans-1","museo-sans-2";
+	background-color: #d2d1d2;
 }
 
 .center {
@@ -79,6 +81,18 @@ input, textarea {
 	border-radius: 3px;
 }
 
+
+#logo{
+	font-size: 30px;
+	font-family: "museo-1","museo-2";
+	text-shadow: 0px -1px 1px gray;
+
+	 
+}
+
+#logo h2{
+	width: 100px;
+}
 /* Rounded */
 
 .white-shadow {
@@ -153,13 +167,13 @@ h2 {
 }
 
 h1 {
-	font-size: 32px;
-	color: #2c7c95;
+	font-size: 50px;
+	color: #4c4b58;
 }
 
 a {
 	text-decoration: none;
-	color: #2c7c95;
+	color: #1d5484;
 }
 
 a:hover {
@@ -203,15 +217,15 @@ label {
 }
 
 #wrapper {
-	padding: 25px 25px 25px 25px;
 	overflow: hidden;
+	padding: 5px;
 }
 
 #container {
-	width: 960px;
+	width: 800px;
 	margin: 6px auto;
-	background-color: #def4f4;
 	margin-top: 20px;
+	
 }
 
 #karma{
@@ -286,7 +300,7 @@ label {
 
 .tags-wrapper {
  	min-height: 30px;
-	margin-bottom: 20px;
+	margin-bottom: 1px;
 	margin-top: 10px;
 	margin-left: 68px; 
 }
@@ -478,7 +492,7 @@ label {
 	margin-top: 20px;
 	padding-bottom: 20px;
 	float: left;
-	width: 750px;
+	width: 800px;
 }
 
 #right-column{
@@ -488,13 +502,15 @@ label {
 }
 
 .snippet-title {
-	width: 91%;
 	float: right;
+	background-color: #f3f3f3;
+	padding: 10px 10px 0px 10px;
 }
 
 .snippet-title-show {
 	width: 810px;
 	float: right;
+	
 }
 
 .description {
@@ -546,19 +562,62 @@ label {
 }
 
 .points-box-list {
-	float: left;
+	float: right;
 	min-width: 50px;
 	text-align: center;
 	margin-right: 10px;
 	min-height: 50px;
 	margin-top: 5px;
-	background-color: #FFF;
+	background-color: #fffbf9;
+	font-size: 12px;
+}
+
+
+.blip{
+	position: relative;
+	width: 780px;
+	min-height: 80px;
+	padding: 4px 8px 1px 8px;
+}
+
+.blip-wrapper{
+	margin-top: -10px;
+	margin-left: 20px;
+
+}
+
+.tri{
+		width: 5px;
+	  border-color: transparent #efefef transparent transparent  ;
+      border-style: solid;
+      border-width: 10px;
+    margin-left: 25px;
+    margin-top: 12px;
+    position: absolute;
+	
+	 }
+
+
+
+.blip-title{
+	background-color: #efefef;
+	margin-left: 50px;
+	margin-top: 10px;
+	width: 500px;
+	padding: 10px 10px 10px 10px;
+}
+
+
+.avatar-blip{
+	float: left;
 }
 
 .list-title {
 	font-size: 40px;
 	margin-bottom: 30px;
 }
+
+
 
 .snippet-link:hover {
 	/*background-color: #e4fbfa;
@@ -570,15 +629,14 @@ label {
 }
 
 .snippet {
-	min-height: 100px;
-	overflow: auto;
-	
+	min-height: 40px;
+	overflow: hidden;
 
 /*border-bottom: 1px solid #fff;
 	border-top: 1px solid #61828a;*/
 
 	padding: 4px 8px 8px 8px;
-	margin-top: 12px;
+	margin-top: 1px;
 }
 
 .snippet_link:hover {
@@ -600,8 +658,8 @@ label {
 }
 
 #snippet_name {
-	width: 850px;
-	font-size: 12px;
+	width: 500px;
+	font-size: 30px;
 }
 
 #snippet_description {
