@@ -13,9 +13,12 @@ class SnippetsController < ApplicationController
     @request=Request.new()
     
     if current_user
-      ls=current_user.snippets.last()
-      
-      @ago = Time.now - ls.created_at
+      begin
+        ls=current_user.snippets.last()
+        @ago = Time.now - ls.created_at
+      rescue
+        @ago=999999999999
+      end
     end
     
     if params[:search]
