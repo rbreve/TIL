@@ -13,8 +13,16 @@
 
 			    <div class="blip-title rounded10 drop-shadow">
 					<div class="vote-box" id="<%=snippet.id%>">
+					
+					<%if current_user and has_voted(current_user.id, snippet.id)%>
+							<%= image_tag("/images/star_on.png") %>
+					<%else%>
+					
 					<%=link_to image_tag("/images/star_off.png"), voteup_path(:snippet_id=>snippet.id), :remote=>true, :method => :post%> 
-					</div>				
+					
+					<%end%>
+					</div>
+									
 	
 				<h2> <%= link_to snippet.name, snippet_path(snippet), :class=>"snippet_link" %> </h2>
 				<div class="points"> <img src="/images/star_on.png"> <%= snippet.votes_count %> </div>
