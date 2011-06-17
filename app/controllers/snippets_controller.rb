@@ -12,6 +12,12 @@ class SnippetsController < ApplicationController
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc")
     @request=Request.new()
     
+    if current_user
+      ls=current_user.snippets.last()
+      
+      @ago = Time.now - ls.created_at
+    end
+    
     if params[:search]
       @tagged = Snippet.tagged(params[:search])
       for snippet in @tagged

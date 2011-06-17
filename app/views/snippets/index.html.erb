@@ -29,8 +29,14 @@ href="/snippets.rss" />
   
   <div id="snippets">
 	
- 	<%= render 'simpleform' %>
- 	
+	<%if @ago > 60*60*12%>
+ 		<%= render 'simpleform' %>
+	<%else%>
+	<div id="in-time" class="rounded10">
+		You will be able to post in <%=distance_of_time_in_words(60*60*12 - @ago)%>
+	</div>
+ 	<%end%>
+ 
 	
 	<%unless @snippets.empty?%>
      <%= render :partial => 'snippet', :collection => @snippets%>
@@ -40,5 +46,4 @@ href="/snippets.rss" />
 	<%end%>
   </div>
   
-   
  
