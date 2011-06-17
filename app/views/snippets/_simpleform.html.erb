@@ -1,10 +1,28 @@
 <div id="forma">
 <%= form_for @snippet do |f| %>
   <%= f.error_messages %>
-    <%= f.text_field :name, :placeholder=>"Today I learned"%>
+<span id="til-label">
+</span>
 
+<div id="avatar-form">
+	<%if current_user%>
+	
+	<%=image_tag current_user.get_avatar, :class=>"avatar"%> 
+	<%else%>
+		<div class="nopic">
+			<img src="/images/smile.png">
+		</div>
+	<%end%>
+</div>
+
+<div id="textarea-form">
+		<div class='tri-form'></div>
+	
+<%= f.text_area :name, :rows=>3, :cols=>56, :class=>'rounded10', :placeholder=>"Today I learned"%>
+</div>	
+	<div id="send">
   	<button class="cupid-blue big-button">SEND</button> 
- 
+ 	</div>
 <% end %>
 </div>
  

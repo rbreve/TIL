@@ -49,8 +49,9 @@ abbr,acronym {
 
 body {
 	font-family: "museo-sans-1","museo-sans-2";
-	background-color: #d2d1d2;
+	background-image: url(../images/bgrep1.png);
 }
+
 
 .center {
 	margin-left: 360px;
@@ -85,10 +86,23 @@ input, textarea {
 #logo{
 	font-size: 30px;
 	font-family: "museo-1","museo-2";
-	text-shadow: 0px -1px 1px gray;
-
-	 
+	text-shadow: 0px -1px 1px gray; 
+	background-color: #6ea2fb;
+		padding: 2px;
+		margin-left: 60px;
+	
+   transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+ 
 }
+
+#logo:hover{
+	text-decoration: none;
+		background-color: #a6d3fc;
+
+}
+
 
 #logo h2{
 	width: 100px;
@@ -210,6 +224,20 @@ label {
 	margin: auto;
 	margin-top: 10px;
 	font-size: 12px;
+	padding-top: 5px;
+	color: #bababa;
+
+}
+
+#header-wrapper{
+	width: 100%;
+	background-color: #3e73b6;
+	margin: 0px;
+	padding: 0px;
+	height: 60px;
+	margin-top: -10px;
+	padding-top: 5px;
+	border-bottom: 1px solid white;
 }
 
 #header a {
@@ -239,6 +267,7 @@ label {
 	float: right;
 	margin-top: 5px;
 	font-size:14px;
+	margin-right: 45px;
 }
 
 #flash_notice, #flash_error, #flash_alert {
@@ -472,18 +501,19 @@ label {
 
 .sort {
 	padding: 4px;
-	background: #acd0e7;
-	color: white;
-	margin-left: 10px;
+	color: #5178bc;
+	margin-left: 15px;
 }
 
 .selected {
 	background: #648bc0;
+	color: white;
 }
 
 .sort:hover {
 	text-decoration: none;
-	background: #648bc0;
+	color: #6ea2fb;
+
 }
 
 #snippets {
@@ -505,6 +535,10 @@ label {
 	float: right;
 	background-color: #f3f3f3;
 	padding: 10px 10px 0px 10px;
+}
+
+.drop-shadow{
+	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .snippet-title-show {
@@ -538,13 +572,30 @@ label {
 }
 
 #show-header{
-    width:100%;
-    overflow:auto;
+   }
+
+.points{
+	color: gray;
+	font-size: 13px;
+}   
+
+.points img{
+	width: 13px;
+}
+
+.vote-box{
+	float: right;		
+	width: 40px;
+	margin-right: -20px;
+}
+
+.vote-box img{
+	width: 18px;
 }
 
 
 .left-box{
-	float:left;
+	float:right;
 }
 
 .points-box {
@@ -603,7 +654,7 @@ label {
 	background-color: #efefef;
 	margin-left: 50px;
 	margin-top: 10px;
-	width: 500px;
+	width: 690px;
 	padding: 10px 10px 10px 10px;
 }
 
@@ -649,23 +700,66 @@ label {
 	
 }
 
+#til-label{
+	color: #7f7f7f;
+	margin-left: 85px;
+}
+
+.tri-form{
+		width: 5px;
+	  border-color: transparent white transparent transparent  ;
+      border-style: solid;
+      border-width: 10px;
+    position: absolute;
+	left: -24px;	
+	top: 20px;
+	 }
+
+
+#textarea-form{
+	position: relative;
+	width: 600px;
+	left: 85px;
+}
+
+#avatar-form{	
+	position: relative;
+	top: 55px;
+	left: 20px;
+}
+
+.nopic{
+	width: 30px;
+	height:30px;
+	background-color: white;	
+	border: 3px solid white;
+
+}
+
 #forma {
-	width: 700px;	
+	overflow: hidden;
+	height: 220px;
+	margin-top: -30px;
 }
 
 #forma button{
-	position: relative;
-	left: 520px;
-	top: -45px;
+	 
 }
 
 #forma input{
 }
 
 #new_snippet{
-	
 	width: 500px;
 }
+#send{
+	position: relative;			
+	display: block;
+	margin-top: 5px;
+	margin-bottom: 25px;
+	left: 640px;
+}
+
 
 #snippet_code {
 	font-family: monaco;
@@ -676,8 +770,8 @@ label {
 }
 
 #snippet_name {
-	width: 500px;
-	font-size: 30px;
+	font-size: 20px;
+	padding: 10px;
 }
 
 #snippet_description {

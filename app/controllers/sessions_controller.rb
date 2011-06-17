@@ -12,6 +12,18 @@ class SessionsController < ApplicationController
     user.avatar=auth['user_info']['image']
     user.save()
     
+ 
+    if session[:til]
+        
+        @snippet = Snippet.new(session[:til])
+        @snippet.user_id = user.id
+        @snippet.save()
+      
+        session[:til]=""
+        redirect_to root_url
+        return
+    end
+    
     if session[:next]
       redirect_to session[:next], :notice => "Signed In"
     else

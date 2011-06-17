@@ -20,7 +20,7 @@
   </div>
   <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="<% if @snippet.user.provider=="twitter" %><%=@snippet.user.username%><%else%>html5snippets<%end%>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
   
-  </div>
+</div>
 
   <div class="snippet-title-show">
       <h1> <%= @snippet.name %></h1>
@@ -58,99 +58,10 @@
 <div class="tags-wrapper-show">
 <%= render :partial => "tags/tag", :locals => {:tags=>@snippet.tags}%>
 </div>
-
-<ul class="snippet-tabs">
-
-<% unless @snippet.is_fiddle() %>
-  <li id="srun">
-   <a href="#" class="rounded-top5" > Run Snippet </a>
-  </li>
- <% end %>
-  <li class="rounded-top5" id="ssource">
-    <a href="#">Source Code</a>
-  </li>
-   
-   
-</ul>
-
-<div id="snippet-content">
-
-<%if @snippet.is_fiddle()%>
-    <div class="embed-wrapper">
-        <iframe style="width: 100%; height: 300px; margin-top:20px;" src="<%=@snippet.code%>/embedded"></iframe>
-    </div>
-<%else%>
-  <div id="source-wrapper">
-    <pre id="sourcecode" class="brush: css; html-script: true;  " > <%= @snippet.code %></pre>
-  </div>  
-  <div id="run-wrapper">
-    <iframe style="width: 100%; height: 700px; margin-top:20px;" frameborder="0" border="0"  src="http://blipea.me/run.php?id=<%=@snippet.id%>"></iframe>
-  </div>
-<%end%>
-
+ 
  
 
-</div>
-
-
-
-  <div id="actions">
-
-  <% if current_user and @snippet.user == current_user%>
-
-    <%= link_to "Edit", edit_snippet_path(@snippet) %>  
-  
-        <%= link_to "Delete", @snippet, :confirm => 'Are you sure?', :method => :delete %>
-      <% unless saved(@snippet.id)%>
-          <%= link_to "Save", saves_path(:snippet_id=>@snippet.id), :remote=>true, :method => :post, :id=>'save' %> 
-      <%else%>
-          Saved 
-      <%end%>
-  <%end%>
-      <% link_to "Report", "#", :id=>'report' %>
-  </div>
-
- <div id="report-form" class="rounded5 darkborder gray-shadow">
-        <%= form_for(@report, :remote => true) do |f| %>
-            <%= f.hidden_field :snippet_id, :value=>@snippet.id %>
-            <label>Reason:</label>
-            <p>
-                
-            <%= f.text_area :reason, :cols=>15, :rows=>5 %>
-            <br/>
-                <%= f.submit :class=>"cupid-blue", :value=>"Send"%>
-            </p>
-        <% end %>
-    </div>
-
-  <%if current_user == @snippet.user%>
  
-
-  <%end%>
-  <p>
-	
-	<div id="disqus_thread"></div>
-	<script type="text/javascript">
-	    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-	    var disqus_shortname = 'html5snippets'; // required: replace example with your forum shortname
-
-	    // The following are highly recommended additional parameters. Remove the slashes in front to use.
-	    var disqus_identifier = '<%=@snippet.id%>';
-	    var disqus_url = 'http://html5snippets.com/snippets/<%=@snippet.to_param%>';
-
-	    /* * * DON'T EDIT BELOW THIS LINE * * */
-	    (function() {
-	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-	        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	    })();
-	</script>
-	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-	<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-	
-	
-  <%= link_to "View All Snippets", snippets_path %>
-</p>
 <script>
     $(function(){
          SyntaxHighlighter.all();

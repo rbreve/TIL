@@ -25,22 +25,12 @@ href="/snippets.rss" />
       link_to("List Recent", sort_path("recent"), :class=>"sort rounded5")
   end %>
   
-  
- 
-   
-  <div id="search">
-  <%= form_tag snippets_path, :method => 'get' do %>
-  <%= text_field_tag :search, params[:search], :placeholder=>"Search"%>
-  <% end %>
-  </div>
-  
     <%end%>
   
   <div id="snippets">
-	  <%if not current_user%>
-    
-	<%= render 'simpleform' %>
-	<%end%>
+	
+ 	<%= render 'simpleform' %>
+ 	
 	
 	<%unless @snippets.empty?%>
      <%= render :partial => 'snippet', :collection => @snippets%>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "HTML5 Snippets" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Today I Learned" %></title>
     
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag :defaults %>
@@ -53,9 +53,11 @@
          </div>
 
       </div>
+
+<div id="header-wrapper">
       <div id="header">
     
-    <a href="/" id="logo" class="">
+    <a href="/" id="logo" class="rounded5">
 TIL
     </a>
     
@@ -69,7 +71,8 @@ TIL
     <%end%>
     </div>
     
-    </div> 
+  </div>
+</div> 
       
     <div id="container" class="rounded10">
         <div id="wrapper">

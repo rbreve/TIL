@@ -1,5 +1,6 @@
-<% if @snippet and not @voted %>
+ <% if @snippet and not @voted %>
 $("#points h1").html("<%=@snippet.votes_count+1%>");
+$("#"+<%=@snippet.id%>).html("<img src=\"/images/star_on.png\")%>");
 <%end%>
 
 <% if @nologin %>

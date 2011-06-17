@@ -1,5 +1,5 @@
 class SnippetsController < ApplicationController
-  before_filter :authenticate_user, :except => ["index", "show", "run", "new", "sms"]
+  before_filter :authenticate_user, :except => ["index", "show", "run", "new", "sms", "create"]
   before_filter :authenticate_author, :only => ["edit", "update"]
   skip_before_filter :verify_authenticity_token
 
@@ -10,7 +10,6 @@ class SnippetsController < ApplicationController
     
     @tags = Snippet.tag_counts_on(:tags).limit(25)
     @snippets = Snippet.search(params[:search]).sortby(@sort).order("created_at desc")
-    print Snippet.tag_counts
     @request=Request.new()
     
     if params[:search]
@@ -32,18 +31,19 @@ class SnippetsController < ApplicationController
       
     #@snippets.sort! { |a,b| a.g <=> b.g}
     
-    unless @sort
-      @snippets.sort! do |a,b|
-         ta=(Time.now - a.created_at)/(1000*60) 
-         pa=a.votes_count
-         ga=(pa - 1) / (ta + 2)**1.5
-      
-         tb=(Time.now - b.created_at)/(1000*60) 
-         pb=b.votes_count
-         gb=(pb - 1) / (tb + 2)**1.5
-          gb <=> ga
-      end
-    end
+    # unless @sort
+    #   @snippets.sort! do |a,b|
+    #      ta=(Time.now - a.created_at)/(1000*60) 
+    #      pa=a.votes_count
+    #      ga=(pa - 1) / (ta + 2)**1.5
+    #   
+    #      tb=(Time.now - b.created_at)/(1000*60) 
+    #      pb=b.votes_count
+    #      gb=(pb - 1) / (tb + 2)**1.5
+    #       gb <=> ga
+    #   end
+    # end
+    
     @snippets=@snippets.paginate(:per_page => 10, :page => params[:page])
     
     session[:next]=nil
@@ -83,10 +83,17 @@ class SnippetsController < ApplicationController
   end
   
   def create
+    
+    unless current_user
+      session[:til] = params[:snippet]
+      redirect_to "/login"
+      return
+    end
+    
     @snippet = Snippet.new(params[:snippet])
     @snippet.user_id = session[:user_id]
     @snippet.tag_list = params[:snippet][:tags]
-    @snippet.code=params[:url] if params[:url] != ""
+ #   @snippet.code=params[:url] if params[:url] != ""
     
     if @snippet.save
       redirect_to "/snippets/sort/recent"
